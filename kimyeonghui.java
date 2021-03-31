@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Hello {
 	public static void main (String[] args) {
 		int num = 127;
-		System.out.println("128ÀÌÇÏÀÇ ¾çÀÇ Á¤¼ö: ");
+		System.out.println("128Ã€ÃŒÃ‡ÃÃ€Ã‡ Â¾Ã§Ã€Ã‡ ÃÂ¤Â¼Ã¶: ");
 		Scanner in = new Scanner(System.in); 
 		int n = in.nextInt();
 		int c;
