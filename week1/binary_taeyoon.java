@@ -1,5 +1,27 @@
+//배열 활용
 import java.util.Scanner;
+public class Hello
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 :");
+		int num = sc.nextInt();
+	        int i;
+		int[] s = new int[9];
+		
+		for(i = 0; i<s.length; i++) {
+			s[i] = num %2;
+	     	        num = num/2;
+		}
+		
+		for(i=s.length-1;i>=0;i--) 
+			System.out.print(s[i]);
+		
+	}
+}
 
+//배열 활용X
+import java.util.Scanner;
 public class Hello
 {
 	public static void main(String[] args) {
