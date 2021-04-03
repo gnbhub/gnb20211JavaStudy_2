@@ -10,7 +10,7 @@
  # 콘솔에서 입력받기
  우선 import java.util.Scanner; 문장을 통해 자바 프로그램의 유틸리티 중에서 Scanner 클래스를 불러와야 한다. Scanner sc = new Scanner(System.in); 에서 Scanner sc는 sc라는 변수가 Scanner 타입인 것을 나타내고, Scanner 생성자를 이용하여 객체를 초기화하는데, 값은 System.in을 통해 입력받은 값이다.
  #연습문제 풀이
- '''
+ ```
  import java.util.Scanner;
 public class Binary {
 	public static void main(String[] args) {
@@ -46,10 +46,10 @@ public class Binary {
 		sc.close();
 	}
 }
-'''
+```
 이 경우는 입력받은 수를 9자리 이하의 이진수로 표현한다고 생각하고 구성한 경우이다. 최초로 2로 나누었을 때 나머지가 마지막으로 출력이 되야하므로 즉시 나누어 출력하지 않고 변수를 각각 지정해서 마지막에 2로 나눈 나머지가 제일 먼저 출력되도록 작성하였다.
 
-'''
+```
 import java.util.Scanner;
 public class Hello {
 	public static void main (String[] args) {
@@ -76,5 +76,5 @@ public class Hello {
 		 System.out.print((c==1)? 1 : 0 );	
 	}
 }
-'''
+```
 이 경우는 127이하의 수를 입력 받아 이진수로 표현하는 경우이다. 입력받은 수를 큰 수부터 2의 제곱수와 &연산자를 통해 2진수의 해당하는 자릿수의 숫자가 1이라면 1을 출력하도록 구성하였다. (이것은 해당하는 숫자만 출력하도록 하는 일종의 마스킹이다.)
