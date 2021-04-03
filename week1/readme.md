@@ -10,10 +10,10 @@
  # 변수, 자료형
  변수는 특정 값을 저장하는 메모리 공간을 뜻한다. 변수 이름을 숫자로 시작하거나, 공백이 들어가거나, 자바 언어의 키워드는 허용되지 않는다. 변수를 선언할 때 var를 이용하여 초기화하면 변수 타입 선언을 생략하고 이를 컴파일러가 추론한다. <br>
  문자열은 기본 타입의 자료형이 아니다. 내장된 문자열 자료형이 없어 String 클래스를 이용한다.
- `
+ ```
  String str1 = new String(“Hello”);
  String str2 = “Hello”; 
- `
+ ```
  두가지 방법으로 문자열을 선언할 수 있는데, 변수명 앞의 String은 이것이 String 클래스임을 나타내고, 우변 new String(“Hello”)에서 String 생성자를 통해 “Hello”로 객체를 초기화한다. (초기값을 지정한다). String(“Hello”)에서 String은 내장된 String 생성자를 이용하여 “Hello”로 객체를 초기화한다.
  # 콘솔에서 입력받기
  우선 import java.util.Scanner; 문장을 통해 자바 프로그램의 유틸리티 중에서 Scanner 클래스를 불러와야 한다. Scanner sc = new Scanner(System.in); 에서 Scanner sc는 sc라는 변수가 Scanner 타입인 것을 나타내고, Scanner 생성자를 이용하여 객체를 초기화하는데, 값은 System.in을 통해 입력받은 값이다. 이렇게 되면 sc는 메소드로써 이용하게 된다.
