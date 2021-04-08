@@ -14,7 +14,7 @@
  ```
  두가지 방법으로 문자열을 선언할 수 있는데, 변수명 앞의 String은 이것이 String 클래스임을 나타내고, 우변 new String(“Hello”)에서 String 생성자를 통해 “Hello”로 객체를 초기화한다. (초기값을 지정한다). String(“Hello”)에서 String은 내장된 String 생성자를 이용하여 “Hello”로 객체를 초기화한다.
  ## 콘솔에서 입력받기
- 우선 `import java.util.Scanner;` 문장을 통해 자바 프로그램의 유틸리티 중에서 Scanner 클래스를 불러와야 한다. <\br>
+ 우선 `import java.util.Scanner;` 문장을 통해 자바 프로그램의 유틸리티 중에서 Scanner 클래스를 불러와야 한다. <br>
  'Scanner sc = new Scanner(System.in);' 에서 Scanner sc는 sc라는 변수가 Scanner 타입인 것을 나타내고, Scanner 생성자를 이용하여 객체를 초기화하는데, 값은 System.in을 통해 입력받은 값이다. 이렇게 되면 sc는 메소드로써 이용하게 된다.
  ## 연습문제 풀이
  숫자를 입력 받고 이를 이진수로 출력하도록 코드를 작성했다.
