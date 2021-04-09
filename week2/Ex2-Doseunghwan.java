@@ -1,6 +1,6 @@
 package hello;
 import java.util.Scanner;
-public class WeakWater {
+public class Ex2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -10,7 +10,7 @@ public class WeakWater {
 	System.out.print("b: ");
 	b = sc.nextInt();
 	for(int i=a ;i<b+1;i++) {
-		System.out.print(i+"ÀÇ ¾à¼ö: ");
+		System.out.print(i+"Ã€Ã‡ Â¾Ã Â¼Ã¶: ");
 		for(int j =1; j<=i;j++) {
 		if(i%j==0)
 			System.out.print(j+" ");
