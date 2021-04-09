@@ -1,6 +1,5 @@
-package hello;
 import java.util.Scanner;
-public class ff {
+public class Hello {
 	public static void main(String[] args) {
 		Scanner nn = new Scanner(System.in);
 		System.out.print("라인수 : ");
