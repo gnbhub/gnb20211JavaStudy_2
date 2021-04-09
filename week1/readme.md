@@ -19,10 +19,10 @@
  ## 연습문제 풀이
  숫자를 입력 받고 이를 이진수로 출력하도록 코드를 작성했다.
  ```
- import java.util.Scanner;
+import java.util.Scanner;
 public class Binary {
 	public static void main(String[] args) {
-		int num, left1, left2, left3, left4, left5, left6, left7, left8, left9;
+		int num, left1, left2, left3, left4, left5, left6, left7, left8, left9; // 숫자를 입력할 각각의 변수 지정, 추후의 나오는 배열을 활용하면 간단하게 작성할 수있다.
 		Scanner sc = new Scanner(System.in);
 		num = sc.nextInt();
 		left9 = num % 2;
@@ -41,7 +41,7 @@ public class Binary {
 		num = num/2;
 		left2 = num % 2;
 		num = num/2;
-		left1 = num % 2;
+		left1 = num % 2;  // 입력받은수를 순서대로 출력한다면 저장하지 않아도 되지만, 역순으로 출력해야하므로 저장한다.
 		System.out.print(left1);
 		System.out.print(left2);
 		System.out.print(left3);
@@ -56,7 +56,7 @@ public class Binary {
 }
 ```
 이 경우는 입력받은 수를 9자리 이하의 이진수로 표현한다고 생각하고 구성한 경우이다. 최초로 2로 나누었을 때 나머지가 마지막으로 출력이 되야하므로 즉시 나누어 출력하지 않고 변수를 각각 지정해서 마지막에 2로 나눈 나머지가 제일 먼저 출력되도록 작성하였다.
-
+### 조건문 응용
 ```
 import java.util.Scanner;
 public class Hello {
@@ -66,8 +66,8 @@ public class Hello {
 		int n = in.nextInt();
 		int c;
 		c = n & 128;
-		System.out.print((c==128)? 1 : 0 );
-		c = n & 64;
+		System.out.print((c==128)? 1 : 0 );  // 3항연산자를 이용해서 조건문안의 식이 참이면 : 왼쪽의 문장을, 거짓이면 오른쪽문장을 출력한다.
+		c = n & 64;                          // 입력받은 수를 각각 2의 배수와 논리연산을 통해 해당자릿수의 숫자가 1이라면 1을, 0이라면 0 을 출력하는 과정이다.
 		 System.out.print((c==64)? 1 : 0 );
 		c = n & 32;
 		 System.out.print((c==32)? 1 : 0 );
@@ -85,3 +85,26 @@ public class Hello {
 }
 ```
 이 경우는 255이하의 수를 입력 받아 이진수로 표현하는 경우이다. 입력받은 수를 큰 수부터 2의 제곱수와 &연산자를 통해 2진수의 해당하는 자릿수의 숫자가 1이라면 1을 출력하도록 구성하였다. (이것은 해당하는 숫자만 출력하도록 하는 일종의 마스킹이다.)
+### 반복문 응용
+#### 반복문을 응용하여 간단하게 코드를 작성할 수 있다.
+```
+import java.util.Scanner;
+public class Hello {
+	public static void main(String[] args) {
+		int i, j=0;
+		Scanner a=new Scanner(System.in);
+		System.out.println("정수: ");
+		i=a.nextInt();
+		for(j=7;j>=0;j--) {
+			if(i>=Math.pow(2,j)) {             // Math.pow ; 지수 활용
+				System.out.print("1");     // 2의 배수와 비교하여 크다면 1을 출력하고 그 숫자만큼 빼는 과정을 반복한다.
+				i-=Math.pow(2,j);
+			}
+			else System.out.print("0");
+		}
+		a.close();	
+	}
+}
+```
+이 경우도 255이하의 수를 입력 받아 이진수로 표현하는 경우이다. 입력받은 수를 2의 7제곱부터 0제곱(1) 까지 비교하여 크다면 1을 출력하고 그 숫자만큼 빼는 과정을 반복한다.
+논리연산자를 이용하지 않고 논리연산을 하는것과 같은 방식이라 할 수 있다.
