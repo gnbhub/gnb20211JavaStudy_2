@@ -22,7 +22,7 @@
 import java.util.Scanner;
 public class Binary {
 	public static void main(String[] args) {
-		int num, left1, left2, left3, left4, left5, left6, left7, left8, left9; // 숫자를 입력할 각각의 변수 지정, 추후의 나오는 배열을 활용하면 간단하게 작성할 수있다.
+		int num, left1, left2, left3, left4, left5, left6, left7, left8, left9;   // 숫자를 입력할 각각의 변수 지정, 추후의 나오는 배열을 활용하면 간단하게 작성할 수있다.
 		Scanner sc = new Scanner(System.in);
 		num = sc.nextInt();
 		left9 = num % 2;
@@ -108,3 +108,27 @@ public class Hello {
 ```
 이 경우도 255이하의 수를 입력 받아 이진수로 표현하는 경우이다. 입력받은 수를 2의 7제곱부터 0제곱(1) 까지 비교하여 크다면 1을 출력하고 그 숫자만큼 빼는 과정을 반복한다.
 논리연산자를 이용하지 않고 논리연산을 하는것과 같은 방식이라 할 수 있다.
+### 배열, 반복문까지 활용할 경우
+```
+import java.util.Scanner;
+public class Hello
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 :");
+		int num = sc.nextInt();
+		int[] s = new int[9];			// 사이즈 9의 배열을 선언한다.
+		
+		for(i = 0; i<s.length; i++) {		// 배열 길이만큼 반복
+			s[i] = num %2;			// s[0] 부터 num을 2로 나눈 나머지를 차례로 저장
+	     	        num = num/2;			// 나머지 저장후 나누기 2
+		}
+		
+		for(i=s.length-1;i>=0;i--) 		// s[배열길이]에서 s[0]까지 역순으로 출력
+			System.out.print(s[i]);	
+	}
+}
+```
+최초의 풀이와 비슷한데 배열을 활용하여 변수를 하나하나 선언하지 않고 배열 하나로 정리하였다. s[0]부터 입력받은 수를 2로 나눈 나머지를 차례로 저장한다. 
+<br>
+그다음 s[8]부터 s[0]까지 역순으로 출력한다.
