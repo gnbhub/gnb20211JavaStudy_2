@@ -2,16 +2,16 @@ package hello;
 
 import java.util.Scanner;
 
-public class Exmid {
+public class Ex1 {
 
 	public static void main(String[] args) {
 		int ln = 0;
 		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.print("¶óÀÎ ¼ö:");
+			System.out.print("ë¼ì¸ ìˆ˜:");
 			int x = sc.nextInt();
 			if (x<3) {
-				System.out.println("¶óÀÎÀº 3ÀÌ»óÀÇ Á¤¼ö¸¸ °¡´ÉÇÕ´Ï´Ù.");
+				System.out.println("ë¼ì¸ì€ 3ì´ìƒì˜ ì •ìˆ˜ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				continue;}
 			if(x%2==1) {
 				int column = x/2+1;
