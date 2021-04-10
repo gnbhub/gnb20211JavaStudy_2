@@ -8,7 +8,7 @@
  ## 변수, 자료형
  변수는 특정 값을 저장하는 메모리 공간을 뜻한다. 변수 이름을 숫자로 시작하거나, 공백이 들어가거나, 자바 언어의 키워드는 허용되지 않는다. 변수를 선언할 때 var를 이용하여 초기화하면 변수 타입 선언을 생략하고 이를 컴파일러가 추론한다. <br>
  문자열은 기본 타입의 자료형이 아니다. 내장된 문자열 자료형이 없어 String 클래스를 이용한다.
- ```
+ ``` Java
  String str1 = new String(“Hello”);
  String str2 = “Hello”; 
  ```
@@ -18,7 +18,7 @@
  `Scanner sc = new Scanner(System.in);` 에서 Scanner sc는 sc라는 변수가 Scanner 타입인 것을 나타내고, Scanner 생성자를 이용하여 객체를 초기화하는데, 값은 System.in을 통해 입력받은 값이다. 이렇게 되면 sc는 메소드로써 이용하게 된다.
  ## 연습문제 풀이
  숫자를 입력 받고 이를 이진수로 출력하도록 코드를 작성했다.
- ```
+ ``` Java
 import java.util.Scanner;
 public class Binary {
 	public static void main(String[] args) {
@@ -57,7 +57,7 @@ public class Binary {
 ```
 이 경우는 입력받은 수를 9자리 이하의 이진수로 표현한다고 생각하고 구성한 경우이다. 최초로 2로 나누었을 때 나머지가 마지막으로 출력이 되야하므로 즉시 나누어 출력하지 않고 변수를 각각 지정해서 마지막에 2로 나눈 나머지가 제일 먼저 출력되도록 작성하였다.
 ### 조건문 응용
-```
+``` Java
 import java.util.Scanner;
 public class Hello {
 	public static void main (String[] args) {
@@ -87,7 +87,7 @@ public class Hello {
 이 경우는 255이하의 수를 입력 받아 이진수로 표현하는 경우이다. 입력받은 수를 큰 수부터 2의 제곱수와 &연산자를 통해 2진수의 해당하는 자릿수의 숫자가 1이라면 1을 출력하도록 구성하였다. (이것은 해당하는 숫자만 출력하도록 하는 일종의 마스킹이다.)
 ### 반복문 응용
 #### 반복문을 응용하여 간단하게 코드를 작성할 수 있다.
-```
+``` Java
 import java.util.Scanner;
 public class Hello {
 	public static void main(String[] args) {
@@ -109,7 +109,7 @@ public class Hello {
 이 경우도 255이하의 수를 입력 받아 이진수로 표현하는 경우이다. 입력받은 수를 2의 7제곱부터 0제곱(1) 까지 비교하여 크다면 1을 출력하고 그 숫자만큼 빼는 과정을 반복한다.
 논리연산자를 이용하지 않고 논리연산을 하는것과 같은 방식이라 할 수 있다.
 ### 배열, 반복문까지 활용할 경우
-```
+``` Java
 import java.util.Scanner;
 public class Hello
 {
