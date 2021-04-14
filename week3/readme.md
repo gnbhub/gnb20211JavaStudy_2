@@ -96,3 +96,85 @@ class Circle{	//클래스 이름
 	double area = obj1.calcArea();	//Circle 클래스 내에 calcArea()라는 메소드를 이용해서 area라는 변수에 값을 선언할 수 있다.
 	}
   ```
+
+## 연습문제
+ • 배열의 성분을 –20에서 20까지의 난수(random number)로 초기화하기 <br>
+ • 배열의 모든 성분을 출력하기 <br>
+ • 배열의 모든 성분의 합을 반환하기 <br>
+ • 배열의 최댓값을 반환하기 <br>
+ • 배열의 최댓값의 인덱스를 반환하기<br>
+ • 배열 성분 셔플링<br>
+ • 배열 성분 한 칸 로테이션 : 왼쪽, 오른쪽<br>
+ • 배열 성분 n 칸 로테이션 : 왼쪽, 오른쪽<br>
+ 
+ ``` Java
+ import java.util.Arrays;
+import java.util.Scanner;
+public class week3_1 {
+	public static void main(String[] args) {
+		int[] arr=new int[6];	// 배열 선언
+		Scanner sc = new Scanner(System.in);
+		int sum = 0;
+		int c, randnum;
+		
+		for(int i=0;i<arr.length;i++) {			// 배열 길이만큼 반복
+			arr[i]=(int)(Math.random()*40-20);	//0-40 사이 난수를 지정 후 –20을 하여 –20에서 20 사이의 난수를 지정한다.
+		}
+		System.out.println(Arrays.toString(arr));
+		System.out.println("배열 성분의 합");
+		for(int i=0;i<arr.length;i++) {			//각각의 배열 요소를 sum에 더한다
+			sum+=arr[i];
+		}
+		System.out.println(sum);
+		System.out.println("성분 셔플");	
+		for(int i=0;i<arr.length;i++) {		
+			randnum=(int)(Math.random()*(arr.length-1));
+			c=arr[i];
+			arr[i]=arr[randnum];
+			arr[randnum]=c;		//각각의 배열 요소를 arr[난수]의 값과 바꾼다
+		}
+		System.out.println(Arrays.toString(arr));
+		System.out.println("왼쪽으로 한 칸 로테이션");
+		c=arr[0];				//c에 배열 맨 앞의 요소를 저장한다.
+		for(int i=1;i<arr.length;i++) {		//인덱스 1번부터 마지막 인덱스까지 증가
+			arr[i-1]=arr[i];
+		} 	//각각의 배열요소에 다음 요소의 값을 대입함으로써 요소들을 왼쪽으로 한 칸씩 당긴다.
+		arr[arr.length-1]=c;		//배열 마지막 요소에 c값을 대입한다.
+		System.out.println(Arrays.toString(arr));
+		System.out.println("오른쪽으로 한 칸 로테이션");
+		c=arr[arr.length-1];		//배열 마지막 요소를 c에 저장한다.
+		for(int i=arr.length-1;i>0;i--) {	//마지막 인덱스부터 1까지 감소
+			arr[i]=arr[i-1];			
+		} 	//각각의 배열 요소에 이전의 요소의 값을 대입함으로써 요소들을 오른쪽으로 한 칸씩 당긴다.
+		arr[0]=c;				//배열 처음 요소에 c값을 대입한다.
+		System.out.println(Arrays.toString(arr));
+		System.out.print("왼쪽으로 몇 칸? ");
+		int n=sc.nextInt();			//몇 칸 이동할지 입력받는다.
+// 배열의 크기만큼 이동하게 되면 결국 제자리이므로 1칸씩 이동하는 메소드를 입력받은 수를 배열의 크기로 나눈 나머지만큼 반복하면 된다. 
+		for(int j=0;j<n%arr.length;j++) {	//1칸씩 이동하는 메소드를 원하는 만큼 반복하면 된다.
+			c=arr[0];
+			for(int i=1;i<arr.length;i++) {
+				arr[i-1]=arr[i];
+			}
+			arr[arr.length-1]=c;
+		}
+		System.out.println(Arrays.toString(arr));
+		System.out.print("오른쪽으로 몇 칸? ");
+		n=sc.nextInt();			//몇 칸 이동할지 입력받는다
+		for(int j=0;j<n%arr.length;j++) {	//1칸씩 이동하는 메소드를 원하는 만큼 반복하면 된다.
+			c=arr[arr.length-1];
+			for(int i=arr.length-1;i>0;i--) {
+				arr[i]=arr[i-1];			
+			}
+			arr[0]=c;
+		}
+		System.out.println(Arrays.toString(arr));
+	}
+}
+```
+ Math.random() 메소드는 시스템 안에 내장되있으므로 import문은 필요 없다. 형변환(int)을 하지 않으면 0에서 1사이의 double형태의 숫자가 정해진다. 40배 해서 0과 40 사이 정수로 만든 후 20을 빼서 –20에서 20사이의 숫자로 배열의 요소를 입력하게 된다. <br>
+ 배열 성분의 합은 반복문내에서 증가하는 변수를 이용해서 각각의 요소를 하나의 변수에 계속 더해주면 된다.<br>
+ 배열 성분 셔플은 반복문을 이용해서 처음 요소부터 마지막 요소까지 배열 내의 임의의 요소와 바꾸는 과정을 거쳐서 만들 수 있다.<br>
+ 배열 성분의 로테이션은 우선 경계가 되어서 일반화한 식을 적용할 수 없는, 즉 처음 요소나 마지막 요소는 직접 바꾸고, 반복 루프를 이용해서 arr[i-] = arr[i]; 과 같은 문장을 통하여 요소들을 오른쪽 또는 왼쪽으로 회전시킬 수 있다.<br>
+ 배열 성분의 1칸의 로테이션을 하나의 묶음으로 생각하면 입력받은 숫자만큼 묶음을 실행하면 원하는 결과를 얻을 수 있다. 다만 입력받은 숫자를 배열의 크기로 나눈 나머지만큼만 반복한다면 반복 횟수를 최소로 해서 원하는 결과를 얻을 수 있다.<br>
+ // 가독성은 잘 모르겠다.
