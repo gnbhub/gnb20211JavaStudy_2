@@ -16,14 +16,14 @@ public class Arr {
 		for(int i=0;i<s.length;i++) {
 			sum+=s[i];
 		}
-		System.out.println("¹è¿­ ¼ººÐÀÇ ÇÕ: "+sum);
+		System.out.println("ë°°ì—´ ì„±ë¶„ì˜ í•©: "+sum);
 		
 		System.arraycopy(s, 0, copy, 0, s.length);
 		Arrays.sort(copy);
-		System.out.println("¹è¿­ ¼ººÐÀÇ ÃÖ´ñ°ª: "+copy[9]);
+		System.out.println("ë°°ì—´ ì„±ë¶„ì˜ ìµœëŒ“ê°’: "+copy[9]);
 		for(int i=0;i<s.length;i++) {
 			if(s[i]==copy[9]) {
-				System.out.println("¹è¿­¼ººÐ Áß ÃÖ´ë°ªÀÇ ÀÎµ¦½º: "+ i);
+				System.out.println("ë°°ì—´ì„±ë¶„ ì¤‘ ìµœëŒ€ê°’ì˜ ì¸ë±ìŠ¤: "+ i);
 				break;
 			}
 		}
@@ -34,11 +34,11 @@ public class Arr {
 			s[i]=s[n];
 			s[n]=c;
 		}
-		System.out.println("¼ººÐ ¼ÅÇÃ");
+		System.out.println("ì„±ë¶„ ì…”í”Œ");
 		for (int m : s) {
 			System.out.print(m+" ");
 		}System.out.println();
-		System.out.println("¿ÞÂÊÀ¸·Î ÇÑ Ä­ ·ÎÅ×ÀÌ¼Ç: ");
+		System.out.println("ì™¼ìª½ìœ¼ë¡œ í•œ ì¹¸ ë¡œí…Œì´ì…˜: ");
 		int ro = s[0];
 		for(int i =0;i<s.length;i++) {
 			if(i==9) {
@@ -50,7 +50,7 @@ public class Arr {
 		for (int m : s) {
 			System.out.print(m+" ");
 		}System.out.println();
-		System.out.println("¿À¸¥ÂÊÀ¸·Î ÇÑ Ä­ ·ÎÅ×ÀÌ¼Ç: ");
+		System.out.println("ì˜¤ë¥¸ìª½ìœ¼ë¡œ í•œ ì¹¸ ë¡œí…Œì´ì…˜: ");
 		ro=s[s.length-1];
 		for(int i=s.length-2;i>=0;i--) {
 			s[i+1]=s[i];
