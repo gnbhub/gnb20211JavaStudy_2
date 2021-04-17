@@ -20,28 +20,28 @@ Java Arrays.fill(배열이름, 초기값);
 을 통해 전체 항목을 초기값으로 초기화할 수 있다.
 
  ### 배열에서 활용할 수 있는 메소드
- 배열 복사 메소드는 시스템에 내장되있어서 import문이 필요 없다.
+ • 배열 복사 메소드는 시스템에 내장되있어서 import문이 필요 없다.
 ``` Java
 System.arraycopy(원본 배열 이름, 시작인덱스, 대상 배열 이름, 복사 위치인덱스, 길이);
 ```
 와 같이 입력한다면, 원본 배열의 시작인덱스의 값부터 길이만큼 대상 배열의 복사 위치인덱스부터 복사한다.
-<br> 배열의 모든 요소 출력은 import java.util.Arrays; 문장이 필요하다.
+<br> • 배열의 모든 요소 출력은 import java.util.Arrays; 문장이 필요하다.
 ``` Java
 System.out.println(Arrays.toString(배열 이름); 
 ```
-배열의 모든 요소를 출력한다. <br>
- 배열을 오름차순으로 정렬하고자 한다면 **import java.util.Arrays;** 문장이 필요하다.
+• 배열의 모든 요소를 출력한다. <br>
+• 배열을 오름차순으로 정렬하고자 한다면 **import java.util.Arrays;** 문장이 필요하다.
 ``` Java
 Arrays.sort(배열 이름);
 Arrays.sort(배열 이름, 시작 인덱스, 끝 인덱스); 
 ```
 시작 인덱스부터 끝인덱스-1의 데이터까지 오름차순으로 정렬한다. <br>
- 내림차순으로 정렬하고자 한다면 **import java.util.Arrays;** 문과 **import.java.util.Collections;** 문장이 필요하다.
+• 내림차순으로 정렬하고자 한다면 **import java.util.Arrays;** 문과 **import.java.util.Collections;** 문장이 필요하다.
 ``` Java
 Arrays.sort(배열 이름, Collections.reverseOrder());
 ```
 하게 되면 내림차순으로 정렬된다. <br>
- 이진탐색은 정렬된 데이터에서 절반씩 줄여나가서 특정값을 탐색하는 방법으로, 정렬이 우선되어야 한다. **import java.util.Arrays;** 문이 필요하다.
+• 이진탐색은 정렬된 데이터에서 절반씩 줄여나가서 특정값을 탐색하는 방법으로, 정렬이 우선되어야 한다. **import java.util.Arrays;** 문이 필요하다.
 ``` Java
 Arrays.binarysearch(배열 이름, 특정 값);
 ```
