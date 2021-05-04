@@ -53,3 +53,35 @@ for(초기식; 조건식; 증감식 ){
  을 통해 레이블을 종료할 수 있다.
  ## continue문
  현재의 반복을 건너뛰어서 continue 이하의 문장은 실행하지 않고 다음 반복으로 넘어가게 한다. 
+ 
+ ## 연습문제
+사용자로부터 두 정수를 입력 받아 두 정수 사이의 약수를 출력하기
+```java
+import java.util.Scanner;
+public class Hello {
+	public static void main(String[] args) {
+		int num, a, b;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("a: ");
+		a = sc.nextInt();
+		System.out.print("b: ");
+		b = sc.nextInt();
+		if(a>b) {
+			num = a;
+			a = b;
+			b = num;		                // a를 작은 숫자로 만들기 위하여 작성하였다.
+		}
+		for(int i=a;i<=b;i++) {		    // a가 b만큼 커질때까지 반복->a부터 b까지
+			System.out.printf("%d의 약수: ", i);
+			for(int j=1;j<=i;j++) {    	             //j가 I가 될 때까지 1씩 증가
+				if(i%j==0)            	//i를 j로 나눈 나머지가 0이라면 약수에 해당함
+					System.out.printf("%d ", j);				
+			}
+			System.out.println();
+		}
+		sc.close();
+	}		
+}
+```
+우선은 큰 수를 먼저 입력받게 되었을 때 a를 작은 숫자로 만들어 주기 위해 a와 b의 값을 바꾸어 대입한다. 그리고 i를 a부터 b까지 1씩 증가시킨다.
+<br>i의 약수를 찾기 위하여 j를 1부터 i까지 1씩 증가시켜 i를 j로 나눈 나머지가 0이라면 약수에 해당하므로 해당 j를 출력한다.
