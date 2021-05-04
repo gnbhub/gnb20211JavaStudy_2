@@ -56,3 +56,35 @@ public class Circle{
 
 ## 정적 메소드
  정적 변수와 마찬가지로 메소드도 정적 메소드가 존재한다. static 수식자를 메소드 앞에 붙여서 만든다. 정적 메소드에서는 정적 변수만을 사용할 수 있다. 인스턴스 변수는 사용할 수 없다. 현재 객체를 가리키는 this도 사용할 수 없다.
+
+## 중간고사 문제 분석
+빈칸에 들어갈 적절한 코드를 작성하는 것이었다.
+``` java
+class Employee{
+	int time;
+	int pay;
+	
+	Employee(int time){
+		this.time = time;
+		}		//빈칸 시작
+	void calpay(){
+		pay =  time*8000;
+		}
+	void calpay(String s){
+		if(s == "manager")
+			pay = time*8000+30000;
+			}
+	}		//빈칸 끝
+public class calPayment{
+	public static void main(String[] args){
+		Employee e1 = new Employee(5);
+		e1.calpay();
+		System.out.println("e1의 임금은"+e1.pay+"입니다.");
+		Employee e2 = new Employee(4);
+		e2.calpay("manager");
+		System.out.print("e2의 임금은"+e2.pay+"입니다.");
+		}
+}
+```
+calpay("manager")인 경우 pay에 30000을 더해서 계산하도록 만드는 문제였다.
+<br>메소드 오버로딩을 이용해서 매개변수 없이 calpay()메소드를 호출 하는 경우애는 time에 8000을 곱해서 pay에 초기화하고, calpay()메소드를 호출하는데 매개변수가 manager인 경우 pay에 8000에 time만큼 곱하고 30000을 더해주도록 설정해주었다.
