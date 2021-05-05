@@ -88,3 +88,149 @@ public class calPayment{
 ```
 calpay("manager")인 경우 pay에 30000을 더해서 계산하도록 만드는 문제였다.
 <br>메소드 오버로딩을 이용해서 매개변수 없이 calpay()메소드를 호출 하는 경우애는 time에 8000을 곱해서 pay에 초기화하고, calpay()메소드를 호출하는데 매개변수가 manager인 경우 pay에 8000에 time만큼 곱하고 30000을 더해주도록 설정해주었다.
+
+## 연습문제(교재 176쪽 2번)
+배열을 이용하여 간단한 극장 예약 시스템 작성하기. 좌석은 한줄이고 10개이다. 사용자가 예약을 하려고 하면 먼저 좌석 배치표를 보여준다.
+<br>
+```
+----------------------
+0 1 2 3 4 5 6 7 8 9
+----------------------
+0 0 0 0 0 0 0 0 0 0
+----------------------
+몇 번째 좌석을 예약하시겠습니까? 2
+예약되었습니다.
+----------------------
+0 1 2 3 4 5 6 7 8 9
+----------------------
+0 0 0 0 0 0 0 0 0 0
+----------------------
+```
+```Java
+import java.util.Scanner;
+public class Ticketing {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] seat = new int[10];	//int형 seat배열 선언
+
+		System.out.println("---------------------------");
+		for(int i = 0;i<10;i++) {
+			System.out.print(i+" ");	}
+		System.out.println();
+		System.out.println("---------------------------");
+		
+		for(int i = 0; i<10;i++) {
+			System.out.print(seat[i]+" ");	}
+		System.out.println();
+		System.out.println("---------------------------");
+		
+		System.out.print("몇번째 좌석을 예약하시겠습니까?");
+		int ans = sc.nextInt();		//어떤 좌석을 예약받을지 입력받는다
+		System.out.println("예약되었습니다.");
+		seat[ans]=1;			//입력받은 좌석의 값을 1로만든다
+		
+		System.out.println("---------------------------");
+		for(int i = 0;i<10;i++) {
+			System.out.print(i+" ");	}
+		System.out.println();
+		System.out.println("---------------------------");
+		
+		for(int i = 0; i<10;i++) {
+			System.out.print(seat[i]+" ");	}
+		System.out.println();
+		System.out.println("---------------------------");
+
+		sc.close();	}
+}
+```
+
+단순히 배열만 이용하여 작성한 경우이다. int형 seat배열을 선언하게 되면 초기값은 전부 0이 된다. 최초의 좌석상태를 출력하고 예약받을 좌석을 입력받은 다음, 입력받은 좌석의 값을 1로 바꾸어 준다. 그리고 좌석의 상태를 출력하고 종료된다.
+```Java
+import java.util.Scanner;
+class Seat{
+	int[] s=new int[10];
+	void showSeat() {
+		System.out.println("---------------------------");
+		for(int i=0;i<10;i++) 
+			System.out.print(i+" ");
+		System.out.println();
+		System.out.println("---------------------------");
+		for(int i=0;i<10;i++)
+			System.out.print(s[i]+" ");
+		System.out.println();
+		System.out.println("---------------------------");		}
+// 클래스를 이용하여 좌석을 출력하는 메소드 showSeat()선언
+	void resSeat(int a) {
+		if(s[a]==0) {
+			s[a]=1;
+			System.out.println("예약되었습니다. ");		}
+//a라는 인수를 전달받아 a가 0이라면 1로 바꾸고 예약되었습니다 출력
+		else System.out.println("이미 예약된 자리입니다. ");
+//1이라면 이미 예약된 자리입니다. 출력
+	}
+}
+
+public class SeatTest {
+	public static void main(String[] args) {
+		Seat a=new Seat();	//a라는 Seat클래스형 생성
+		while(true) {
+			a.showSeat();		//showSeat메소드를 호출한다.
+			Scanner sc=new Scanner(System.in);
+			System.out.print("몇 번째 좌석을 예약하시겠습니까? (그만두려면 10 이상의 숫자 입력) ");
+			int seatnum=sc.nextInt();		
+//어떤 좌석을 예약받을지 입력받는다
+			if(seatnum>=10)
+				break;		//10이상의 수를 입력받으면 반복문종료
+			a.resSeat(seatnum);	//resSeat메소드를 호출한다.
+		}
+	}
+}
+```
+클래스를 만들어 활용한 풀이이다. 클래스 내의 필드에 배열을 선언해놓고, showSeat메소드와 resSeat메소드를 작성하여 메소드를 이용하여 좌석을 예약받도록 작성하였다.
+```java
+import java.util.Scanner;
+class Movie{
+	int x; int y;
+	public Movie(int x, int y) {
+		this.x=x; this.y=y;
+	}
+}	//좌석 자체를 Movie라는 클래스로 작성하였다.
+
+public class book {
+	public static void main(String[] args) {
+		Movie[] my = new Movie[10];		//my는 Movie클래스형 배열
+		for(int i=0;i<my.length;i++) {
+			my[i] = new Movie(i,0);
+			}
+// 모든 my인스턴스의 x에는 0부터9까지를, y에는 0을 대입한다.
+		System.out.println("--------------------");
+		for(Movie obj : my) {
+			System.out.print(obj.x +" ");
+		}System.out.println();
+		System.out.println("--------------------");
+		for(Movie obj : my) {
+			System.out.print(obj.y+" ");
+		}System.out.println();
+		System.out.println("--------------------");
+		System.out.print("몇번째 좌석을 예약하시겠습니까?");
+		Scanner in = new Scanner(System.in);
+		int num = in.nextInt();		////어떤 좌석을 예약받을지 입력받는다
+		System.out.println("예약되었습니다.");
+		for(int i =0;i<my.length;i++) {
+			if(num==i) my[i].y=1;
+		}
+		System.out.println("--------------------");
+		for(Movie obj : my) {
+			System.out.print(obj.x +" ");
+		}System.out.println();
+		System.out.println("--------------------");
+		for(Movie obj : my) {
+			System.out.print(obj.y+" ");
+		}System.out.println();
+		System.out.println("--------------------");
+	}
+}
+```
+마찬가지로 클래스를 활용하여 작성되었다. 위쪽 코드와 다른 점은 위쪽 코드는 클래스 내에 인스턴스를 배열로 지정한 것이고, 이 코드는 배열을 참조형으로 선언하게 만든 것이다. 여기서 Movie클래스는 사실상 set형과 같다.
+
