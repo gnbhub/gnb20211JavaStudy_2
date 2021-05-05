@@ -21,10 +21,10 @@ public class book {
 			System.out.print(obj.y+" ");
 		}System.out.println();
 		System.out.println("--------------------");
-		System.out.print("¸î¹øÂ° ÁÂ¼®À» ¿¹¾àÇÏ½Ã°Ú½À´Ï±î?");
+		System.out.print("ëª‡ë²ˆì§¸ ì¢Œì„ì„ ì˜ˆì•½í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 		Scanner in = new Scanner(System.in);
 		int num = in.nextInt();
-		System.out.println("¿¹¾àµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ì˜ˆì•½ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		for(int i =0;i<my.length;i++) {
 			if(num==i) my[i].y=1;
 		}
