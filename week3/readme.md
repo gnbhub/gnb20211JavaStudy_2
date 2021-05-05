@@ -15,7 +15,7 @@ int[] scores = new int[] {10, 20, 30, 40, 50};
 ```
  처럼 직접 배열 안의 데이터를 초기화할 수도 있고, 또는 메소드(method)를 이용하여 초기화할 수 있다. 우선 메소드를 이용하기 위해서 `import java.util.Arrays;` 문장이 필요하다.
 ``` Java
-Java Arrays.fill(배열이름, 초기값);
+Arrays.fill(배열이름, 초기값);
 ```
 을 통해 전체 항목을 초기값으로 초기화할 수 있다.
 
