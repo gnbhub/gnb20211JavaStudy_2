@@ -87,7 +87,7 @@ class Student extends People{
 public class StudentTest{
 	public static vodi main(String[] args){
 		Student s1=new Student();
-		s1.PeopleInfor();
+		s1.PeopleInfo();
 		s1.StudentInfo();
 		People s2=new Student();	//가능
 		s2.PeopleInfo();
