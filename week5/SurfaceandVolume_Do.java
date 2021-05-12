@@ -4,7 +4,7 @@ class Radius{
 	protected double r;
 	public void getR() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("¹İÁö¸§ÀÇ ±æÀÌ: ");
+		System.out.print("ë°˜ì§€ë¦„ì˜ ê¸¸ì´: ");
 		r = sc.nextDouble();
 	}
 }
@@ -13,18 +13,18 @@ class Circle extends Radius{
 		super.getR();
 		double area = PI*r*r;
 		double periphery = 2*PI*r;
-		System.out.println("¿øÀÇ ³ĞÀÌ´Â "+area+", µÑ·¹´Â "+periphery+"ÀÔ´Ï´Ù.");
+		System.out.println("ì›ì˜ ë„“ì´ëŠ” "+area+", ë‘˜ë ˆëŠ” "+periphery+"ì…ë‹ˆë‹¤.");
 	}
 }
 class Cylinder extends Radius{
 	public Cylinder() {
 		super.getR();
-		System.out.print("³ôÀÌ: ");
+		System.out.print("ë†’ì´: ");
 		Scanner sc = new Scanner (System.in);
 		double height = sc.nextDouble();
 		double surface = 2*PI*r*height+2*PI*r*r;
 		double volume = PI*r*r*height;
-		System.out.println("¿ø±âµÕÀÇ °Ñ³ĞÀÌ´Â "+surface+", ºÎÇÇ´Â "+volume+"ÀÔ´Ï´Ù.");
+		System.out.println("ì›ê¸°ë‘¥ì˜ ê²‰ë„“ì´ëŠ” "+surface+", ë¶€í”¼ëŠ” "+volume+"ì…ë‹ˆë‹¤.");
 	}
 }
 class Sphere extends Radius{
@@ -32,25 +32,25 @@ class Sphere extends Radius{
 		super.getR();
 		double surface = 4*PI*r*r;
 		double volume = (4/3)*PI*r*r*r;
-		System.out.println("±¸ÀÇ °Ñ³ĞÀÌ´Â "+surface+", ºÎÇÇ´Â "+volume+"ÀÔ´Ï´Ù.");
+		System.out.println("êµ¬ì˜ ê²‰ë„“ì´ëŠ” "+surface+", ë¶€í”¼ëŠ” "+volume+"ì…ë‹ˆë‹¤.");
 	}
 }
 public class SurfaceandVolume {
 
 	public static void main(String[] args) {
-		System.out.print("µµÇüÀ» ¼±ÅÃÇÏ½Ã¿À. (¿ø, ¿ø±âµÕ, ±¸)  ");
+		System.out.print("ë„í˜•ì„ ì„ íƒí•˜ì‹œì˜¤. (ì›, ì›ê¸°ë‘¥, êµ¬)  ");
 		Scanner sc = new Scanner(System.in);
 		String what = sc.nextLine();
 		switch(what) {
-		case ("¿ø"):
+		case ("ì›"):
 			Circle c = new Circle();
 			break;
 		
-		case ("¿ø±âµÕ"):
+		case ("ì›ê¸°ë‘¥"):
 			Cylinder y = new Cylinder();
 			break;
 		
-		case ("±¸"):
+		case ("êµ¬"):
 			Sphere s = new Sphere();
 			break;
 		}
