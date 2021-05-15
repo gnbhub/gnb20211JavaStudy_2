@@ -16,12 +16,12 @@ class SportsCar extends Car{
 }
 ```
 으로 생성할 수 있다. <br>
-자식 클래스의 객체를 생성하면 생성된 객체는 자신의 자체 필드와 메소드 뿐만 아니라 부모 클래스의 필드와 메소드를 사용 할 수 있다. 
+자식 클래스의 객체를 생성하면 생성된 객체는 자신의 자체 필드와 메소드 뿐만 아니라 부모 클래스의 필드와 메소드를 사용할 수 있다. 
 ### 상속과 접근 권한
-보통 클래스의 필드의 접근 권한을 public으로 설정하는 것은 class 디자인 원칙에 위반하므로 private으로 주로 설정한다. 
-하지만 부모 클래스에서 접근 권한을 설정할 때 privite 으로 설정하면 자식 클래스에서 해당 필드를 사용할 수 없게 되므로 접근 권한을 protected로 설정하여 
-자식 클래스에서도 해당 필드값을 사용 할 수 있도록 한다. 
-<br>접근 권한이 protected인 경우 다른 패키지의 클래스여도 상속받은 경우 해당 필드를 사용할 수 있다. 
+보통 클래스의 필드의 접근 권한을 public으로 설정하는 것은 class 디자인 원칙에 위배되므로 private으로 주로 설정한다. 
+하지만 부모 클래스에서 접근 권한을 설정할 때 private 으로 설정하면 자식 클래스에서 해당 필드를 사용할 수 없게 되므로 접근 권한을 protected로 설정하여 
+자식 클래스에서도 해당 필드값을 사용할 수 있도록 한다. 
+<br>접근 권한이 protected인 경우, 다른 패키지의 클래스일지라도 상속받은 경우 해당 필드를 사용할 수 있다. 
 ### 상속과 생성자
 서브 클래스의 객체가 생성될 때, 생성자의 호출은 부모 클래스의 생성자가 먼저 호출되며, 다음으로 자식 클래스의 생성자가 호출된다. <br>
 예시를 살펴보면
@@ -71,7 +71,7 @@ public class ShapeTest{
 <br>생성자를 호출하는 코드가 없는 경우에는 매개변수가 없는 맨 위의 생성자를 실행한다. 
 
 ### 참조변수의 참조 가능성
-하위 클래스의 참조변수로는 상위 클래스의 멤버를 참조할 수 있지만 역은 성립하지 않는다. 
+하위 클래스의 참조변수로는 상위 클래스의 멤버를 참조할 수 있지만, 역은 성립하지 않는다. 
 <br>예시
 ```java
 class People{
@@ -85,7 +85,7 @@ class Student extends People{
 	}
 }
 public class StudentTest{
-	public static vodi main(String[] args){
+	public static void main(String[] args){
 		Student s1=new Student();
 		s1.PeopleInfo();
 		s1.StudentInfo();
@@ -95,6 +95,10 @@ public class StudentTest{
 	}
 }
 ```
+ **※** s1은 Student를 참조하는 Student클래스의 인스턴스이므로, People클래스를 상속받은 Student 클래스의 멤버 뿐만 아니라 People클래스의 멤버도 이용할수 있다. 하지만 s2는 People를 참조하는 Student클래스의 인스턴스이므로, People클래스의 멤버만 이용할 수 있다.
+<br>다만, 만약 Student클래스에 People클래스의 메소드를 오버라이딩하는 메소드가 존재한다면, 자바는 동적 바인딩(dynamical binding) 형식으로 동작하므로 s1객체에서 메소드를 호출했을 때, Student클래스의 오버라이딩된 메소드를 호출하게 된다.
+
+
 ### instanceof 연산자
 참조변수의 타입을 확인하는 연산자로 `if(ref instanceof ClassName)`인 경우 ref가 ClassName 클래스의 인스턴스이면 true를 반환하고 
 ref가 ClassName 클래스의 인스턴스가 아니면 false를 반환한다. 
@@ -116,16 +120,19 @@ public class StudentTest{
 	}
 }
 ```
-위 프로그램을 실행하면 "Student 타입"이라고 출력되므로 p의 타입은 Student타입이 된다. 
-이것은 java가 메모리 할당을 할 때 동적 할당을 한다는 증거이다. 즉, java에서는 객체가 생성이 될 때 타입이 결정된다. 
+위 프로그램을 실행하면 "Student 타입"이라고 출력되므로 p의 타입은 Student타입임을 알 수 있다. 
+이것은 java가 메모리 할당을 할 때 동적 할당을 한다는 증거이다. 즉, java에서는 객체를 참조할 때가 아니라 객체가 생성될 때 타입이 결정된다.
+
 ## 메소드 재정의(method overriding)
 메소드 재정의는 자식 클래스가 필요에 따라 상속된 메소드를 다시 정의하는 것이다. 메소드의 헤드는 변경이 불가능하고 
-메소드의 본체만 변경 할 수 있다. 
+메소드의 본체만 변경할 수 있다. 
+
 ### 메소드 오버라이딩의 규칙
 부모 클래스에 있는 메소드 중 변경하고자 하는 메소드를 자식 클래스에서 똑같이 선언 후 내용을 변경하면 된다. 
 이때, 새로 정의한 메소드의 이름, 반환형, 매개 변수의 개수와 데이터 타입은 기존의 것과 일치해야 한다. 
+
 ### 오버라이딩된 부모 클래스 멤버 접근
-클래스 내부에서 super를 사용하여 `super.methodName();`으로 기존의 super 클래스의 methodName이라는 메소드를 사용 할 수 있다. 
+클래스 내부에서 super를 사용하여 `super.methodName();`으로 기존의 super 클래스의 methodName이라는 메소드를 접근할 수 있다. 
 이렇게 오버라이딩된 부모 클래스의 메소드는 클래스 내부에서만 호출 가능하며 클래스 외부에서 호출하는 방법은 없다. 
 <br>예시
 ```java
@@ -143,8 +150,9 @@ class Dog extends Animal{
 public class DogTest{
 	public static void main(String[] args){
 		Dog d=new Dog();
-		d.eat();
+		d.eat();	//강아지가 먹고 있습니다. 가 출력된다.
 	}
 }
 ```
+
 
