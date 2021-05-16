@@ -154,5 +154,109 @@ public class DogTest{
 	}
 }
 ```
-
-
+ - 연습문제
+반지름에 대한 클래스 Radius에 대해 다음과 같이 정의하고 Radius 클래스를 상속받아 원의 넓이와 둘레, 원기둥과 구의 겉넓이와 부피를 구하고 출력하는 프로그램을 작성하여라.
+Radius 클래스
+``` java
+class Radius{
+	protected double r;
+	public void getR(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print(“반지름의 길이: ”);
+		r = sc.nextDouble();
+	}
+실행 예시
+도형을 선택하시오. (원, 원기둥, 구) 원기둥
+반지름의 길이: 3
+높이: 5
+원기둥의 겉넓이는 352.64, 부피는 141.37입니다.
+도형을 선택하시오. (원, 원기둥, 구) 구
+반지름의 길이: 5
+구의 겉넓이는 62.83, 부피는 523.60입니다.
+도형을 선택하시오. (원, 원기둥, 구) 원
+반지름의 길이: 1
+원의 넓이는 3.14, 둘레는 6.28입니다.
+```
+```java
+import java.util.Scanner;
+class Radius{
+	protected double r;
+	public void getR() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("반지름의 길이: ");
+		r=sc.nextDouble();
+	}	//반지름을 입력받는 getR()메소드
+	public void show() {
+		System.out.println("반지름의 길이는 "+r+"입니다. ");
+	}	//반지름의 길이를 출력하는 show()메소드
+}
+class Circle extends Radius{		//Circle클래스는 Radius클래스를 상속받는다.
+	protected double area;		//넓이 변수
+	protected double perimeter;	//둘레 변수
+	public void gets() {
+		area=r*r*Math.PI;
+		perimeter=2.0*r*Math.PI;
+	}	//넓이와 둘레를 계산하는 메소드
+	public void show() {
+		System.out.printf("원의 넓이는 %.2f, 둘레는 %.2f입니다. \n", area, perimeter);
+	}	//show메소드 오버라이딩
+	
+}
+class Sphere extends Radius{	//Sphere클래스는 Radius클래스를 상속받는다.
+	private double area;		//겉넓이 변수
+	private double volume;	//부피 변수
+	public void gets() {
+		area=4.0*r*Math.PI;
+		volume=4.0*r*r*r*Math.PI/3;
+	}		//겉넓이와 부피를 계산하는 메소드 gets()
+	public void show() {
+		System.out.printf("구의 겉넓이는 %.2f, 부피는 %.2f입니다. \n", area, volume);
+	}	//show() 메소드 오버라이딩
+}
+class Cylinder extends Circle{	//Cylinder클래스는 Circle클래스를 상속받는다.
+	private double height;		//높이 변수
+	public void getHeight() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("높이: ");
+		height=sc.nextDouble();
+	}	//높이를 입력받는 메소드
+	private double cylinderArea;		//겉넓이 변수
+	private double cylinderVolume;	//부피 변수
+	public void gets() {
+		cylinderArea=2*area+perimeter*height*Math.PI;
+		cylinderVolume=area*height;
+	}		//겉넓이와 부피를 계산하는 메소드
+	public void show() {		
+		System.out.printf("원기둥의 겉넓이는 %.2f, 부피는 %.2f 입니다. \n", cylinderArea, cylinderVolume);
+	}		//show()메소드 오버라이딩
+}
+public class RadiusTest {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("도형을 선택하시오. (원, 원기둥, 구) ");
+		String shape=sc.nextLine();
+		if(shape.equals("구")==true) {		//구 라고 입력받았을때
+			Sphere obj2=new Sphere();	//obj2는 Sphere인스턴스
+			obj2.getR();			//반지름을 입력받는 메소드
+			obj2.gets();		//겉넓이, 부피를 계산하는 메소드
+			obj2.show();		//겉넓이, 부피를 출력하는 메소드
+		}
+		else if(shape.equals("원기둥")==true) {	
+	//원기둥이라고 입력받았을때
+			Cylinder obj1=new Cylinder();	//obj1은 Cylinder인스턴스
+			obj1.getR();			//반지름을 입력받는 메소드
+			obj1.getHeight();		//높이를 입력받는 메소드
+			obj1.gets();		//겉넓이, 부피를 계산하는 메소드
+			obj1.show();		//겉넓이, 부피를 출력하는 메소드
+		}
+		else if(shape.equals("원")==true) {	//원 이라고 입력받았을 때
+			Circle obj3=new Circle();		//obj3은 Circle인스턴스
+			obj3.getR();			//반지름을 입력받는 메소드
+			obj3.gets();			//넓이와 둘레를 계산하는 메소드
+			obj3.show();			//넓이와 둘레를 출력하는 메소드
+		}		
+	}
+}
+```
+각각의 Circle, Cylinder, Sphere 클래스는 Radius 클래스를 상속받는다. 상속받은 클래스로 만들어진 인스턴스는 Radius클래스의 멤버인 변수 r과 메소드 getR(), show()를 참조할 수 있다.
+<br>각각의 클래스 내부에서 show()메소드를 오버라이딩하여 각각의 목적에 맞도록 다시 선언되었다. 메인함수에서 해당하는 클래스의 인스턴스를 만들고 getR()을 통하여 반지름을 입력받고, Cylinder클래스는 getHeight()를 통하여 높이까지 입력 받는다. 각각의 gets()메소드를 통해 원은 넓이와 둘레를, 원기둥은 겉넓이와 부피를, 구는 겉넓이와 부피를 계산한다. 그 다음 각 클래스의 show()메소드를 통하여 계산한 값을 출력한다.
