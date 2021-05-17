@@ -154,9 +154,9 @@ public class DogTest{
 	}
 }
 ```
- - 연습문제
+## 연습문제
 반지름에 대한 클래스 Radius에 대해 다음과 같이 정의하고 Radius 클래스를 상속받아 원의 넓이와 둘레, 원기둥과 구의 겉넓이와 부피를 구하고 출력하는 프로그램을 작성하여라.
-Radius 클래스
+<br>Radius 클래스
 ``` java
 class Radius{
 	protected double r;
