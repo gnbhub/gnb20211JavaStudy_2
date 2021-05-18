@@ -131,7 +131,7 @@ interface Shape{
 	public static final double PI = 3.14;
 	public abstract void calcArea(double w, double h);
 	public abstract void calcGirth(double...v);
-	//인터페이스 안의 모든 메소드는 public과 abstract를 붙이지 않아도 	public과 abstract로 취급된다.
+	//인터페이스 안의 모든 메소드는 public과 abstract를 붙이지 않아도 public과 abstract로 취급된다.
 }
 class Tri implements Shape{
 	double len = 0;
