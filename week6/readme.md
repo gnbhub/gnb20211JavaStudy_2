@@ -222,10 +222,10 @@ interface Itest{
 interface Itest1{
 	void fun1();
 }
-interface Itest2 extends Itest{
+interface Itest2 extends Itest{		//Itest2는 Itest상속받음
 	void fun2();
 }
-class Child implements Itest1,Itest2{
+class Child implements Itest1,Itest2{	//Child는 Itest1과 Itest2를 내포함, 즉 Itest까지 내포함
 	public void fun() {}
 	public void fun1() {}
 	public void fun2() {}
@@ -238,10 +238,13 @@ public class MultiTest{
 		c.fun(); c.fun1(); c.fun2();
 		i.fun();
 		//i.fun1(); i.fun2(); 오류발생
+		i1.fun1();
+		//i1.fun1(); i1.fun2();	마찬가지로 오류 발생
 	}
 }
 ```
 ⇒ 업캐스팅된 참조변수는 하위클래스에 있는 멤버는 사용불가능하므로 오류가 발생한다.
+<br>다운캐스팅을 이용하면 되겠다.
 
 ## 추상클래스와 인터페이스 비교
 - 유사점 : 객체를 생성할 수 없고, 상속을 위한 슈퍼 클래스로만 사용, 클래스의 다형성을 제공하기 위한 목적
