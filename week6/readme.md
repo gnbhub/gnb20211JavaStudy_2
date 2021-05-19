@@ -134,35 +134,35 @@ interface Shape{
 	public abstract void calcGirth(double...v);
 	//인터페이스 안의 모든 메소드는 public과 abstract를 붙이지 않아도 public과 abstract로 취급된다.
 }
-class Tri implements Shape{
+class Tri implements Shape{		//Tri는 Shape를 implements함
 	double len = 0;
 	public void calcArea(double w, double h) {
 		System.out.println("삼각형의 면적" + (w*h)/2);
-	}
+	}		//calcArea()재정의
 	public void calcGirth(double...v) {
 		for(double val:v) {len+=val;}
 		System.out.println("삼각형의 둘레"+len);
-	}
+	}		//calcGirth()재정의
 }
-class Rect implements Shape{
+class Rect implements Shape{		//Rect는 Shape를 implements함
 	double len =0;
 	public void calcArea(double w, double h) {
 		System.out.println("사각형의 면적" + (w*h));
-	}
+	}		//calcArea()재정의
 	public void calcGirth(double...v) {
 		for(double val:v) {len+=val;}
 		System.out.println("사각형의둘레"+len);
-	}
+	}		//calcGirth()재정의
 }
-class Circle implements Shape{
+class Circle implements Shape{		//Circle은 Shape를 implements함
 	public void calcArea(double w, double h) {
 		System.out.printf("원의 면적 %.2f\n" , PI*w*w);
-	}
+	}		//calcArea()재정의
 	public void calcGirth(double...v) {
 		double len=0;
 		for(double val:v) {len+=val;}
 		System.out.println("원의둘레"+2*PI*len);
-	}
+	}		//calcGirth()재정의
 	
 }
 public class inter {
@@ -227,20 +227,20 @@ interface Itest2 extends Itest{		//Itest2는 Itest상속받음
 	void fun2();
 }
 class Child implements Itest1,Itest2{	//Child는 Itest1과 Itest2를 내포함, 즉 Itest까지 내포함
-	public void fun() {}
-	public void fun1() {}
-	public void fun2() {}
+	public void func() {}
+	public void func1() {}
+	public void func2() {}
 }
 public class MultiTest{
 	public static void main(String[] args) {
 		Child c = new Child();
 		Itest i = new Child();
 		Itest1 i1 = new Child();
-		c.fun(); c.fun1(); c.fun2();
-		i.fun();
-		//i.fun1(); i.fun2(); 오류발생
-		i1.fun1();
-		//i1.fun1(); i1.fun2();	마찬가지로 오류 발생
+		c.func(); c.func1(); c.func2();
+		i.func();
+		//i.func1(); i.func2(); 오류발생
+		i1.func1();
+		//i1.func(); i1.func2();	마찬가지로 오류 발생
 	}
 }
 ```
