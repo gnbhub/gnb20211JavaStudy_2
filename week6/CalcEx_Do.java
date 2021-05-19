@@ -36,7 +36,7 @@ public class CalcEx {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("µÎ Á¤¼ö¿Í ¿¬»êÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä >>");
+		System.out.print("ë‘ ì •ìˆ˜ì™€ ì—°ì‚°ìžë¥¼ ìž…ë ¥í•˜ì„¸ìš” >>");
 		String ans = sc.nextLine();
 		String[] tokens = ans.split(" ");
 		String a = tokens[0];
