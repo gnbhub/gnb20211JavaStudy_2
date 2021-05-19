@@ -10,14 +10,14 @@ abstract class Shape{
 	public abstract void calcArea(double w, double h);    //본체 부분이 없는 추상클래스의 메소드
 }
 class Rect extends Shape{
-	public void calcArea(double w, double h) {
+	public void calcArea(double w, double h) {	//calcArea오버라이딩
 		area = w*h;
 	
 		System.out.println("사각형의 면적은"+area);
 	}
 }
 class Triangle extends Shape{
-	public void calcArea(double w, double h) {
+	public void calcArea(double w, double h) {	//calcArea오버라이딩
 		area = w*h/2.0;
 	
 		System.out.println("삼각형의 면적은"+area);
@@ -28,11 +28,11 @@ public class ShapeTest {
 	public static void main(String[] args) {
 		int w=3,h=4;
 		
-		Shape s= new Rect();
-		s.calcArea(w,h);
+		Shape s = new Rect();		//s는 Shape를 참조하는 Rect인스턴스
+		s.calcArea(w,h);		//오버라이딩된 메소드 호출됨
 		
-		s= new Triangle();
-		s.calcArea(w,h);
+		s = new Triangle();		//s는 Shape를 참조하는 Triangle 인스턴스
+		s.calcArea(w,h);		//오버라이딩된 메소드 호출됨
 	}
 }
 ```
@@ -40,7 +40,7 @@ public class ShapeTest {
 
 ## 추상 클래스의 특징
 - 추상 클래스는 객체 생성을 할 수 없다. 즉 인스턴스 생성이 불가능하고 참조 변수로만 선언이 가능하다.
-<br> (위의 예제에서 `Shape s = new Shape()`형태로 선언하는 것이 불가능)
+<br> (위의 예제에서 `Shape s = new Shape();`형태로 선언하는 것이 불가능)
 - 추상 클래스 멤버로는 멤버 변수, 멤버 메소드, 생성자, 추상 메소드 등이 있고 위에서 말했듯이 클래스의 멤버에 추상 메소드가 있을 경우 클래스는 반드시 추상 클래스로 선언해야 한다.
 - 추상 메소드가 없어도 추상 클래스로 선언은 가능하다
 - 업캐스팅 타입으로 사용 가능하다.
@@ -51,6 +51,7 @@ public class ShapeTest {
 ### 자바의 다형성 구현
 상속 구조에서 상위 클래스 타입의 변수가 하위 클래스의 인스턴스를 가리킬 수 있는 기능으로 반드시 상속 관계인 클래스들 사이에서 성립된다. 이를 통해 재사용성이 높아질 수 있다.
 ```java
+		…
 	public void draw() {
 		System.out.println("Shape Draw");
 	}
@@ -106,10 +107,10 @@ class University extends Student{
 }
 public class StuTest {
 	public static void main(String[] args) {
-	Student s;
-	s= new University("이몽룡","math");
+	Student s;		//s는 Student 참조
+	s= new University("이몽룡","math");	//s는 University 인스턴스
 	System.out.println(s.getInfo());
-	//System.out.println(s.getMajor()); 오류발생
+	//System.out.println(s.getMajor()); 오류발생: Student를 참조하기 때문이다.
 	
 	University ob = (University)(s); //다운캐스팅
 	System.out.println(ob.getMajor());
