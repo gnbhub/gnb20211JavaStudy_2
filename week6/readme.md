@@ -284,3 +284,89 @@ import graphics.*;
 Circle myCircle = new Circle();
 ```
 import로 패키지를 포함시켜놓으면 그 패키지 안에 들어있는 클래스들은 패키지 이름을 생략하고 클래스 이름으로만 사용할 수 있다.
+
+## 연습문제
+아래와 같이 4개의 멤버(필드와 메소드)를 가진, 4개의 클래스 Add,Sub,Mul,Div 를 작성하세요.
+- int타입의 a, b 필드 : 2개의 피연산자 저장할 변수
+- void setValue(int a, int b) : 피연산자 값을 객체 내에 저장
+- int calculate() : 클래스의 목적에 맞는 연산을 실행하고 결과를 리턴한다.
+
+그런데, 각각의 클래스마다 공통된 필드와 메소드가 존재하는 구조이므로, Calc라는 이름의 추상클래스를 작성하여 Calc를 상속받아 각 4개의 클래스를 작성해보세요.
+<br>그리고, main()메소드에서 실행예시와 같이 2개의 정수와 연산자를 입력받은 후,
+<br>4개의 클래스 중 적합한 연산을 처리할 수 있는 객체를 생성하고 메소드를 호출하여 그 결과 값을 화면에 출력하게 작성해보세요. 
+<br>[출처] [Java] 상속/추상클래스/인터페이스 연습문제|작성자 HeraPro
+``` java
+import java.util.Scanner;
+abstract class Calc{
+	protected int a,b;
+	void setValue(int a, int b) {
+		this.a = a;
+		this.b = b;
+	} 	//두 정수를 입력받아 각각 a, b에 대입하는 setValue()
+	public abstract int calculate();
+}		//내용이 없는 추상메소드 calculate()
+
+class Add extends Calc{
+	public int calculate() {
+		return a+b;
+	}		//calculate() 재정의
+}
+
+class Sub extends Calc{
+	public int calculate() {
+		return a-b;
+	}		//calculate() 재정의
+}
+
+class Mul extends Calc{
+	public int calculate() {
+		return a*b;
+	}		//calculate() 재정의
+}
+
+class Div extends Calc{
+	public int calculate() {
+		return a/b;
+	}		//calculate() 재정의
+}
+
+public class CalcEx {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("두 정수와 연산자를 입력하세요 >>");
+		String ans = sc.nextLine();
+		String[] tokens = ans.split(" ");
+// tokens라는 String 배열 요소에 split()메소드를 이용하여 공백을 단위로 초기화
+		String a = tokens[0];
+		String b = tokens[1];
+		String op = tokens[2];
+		int c = Integer.parseInt(a);
+		int d = Integer.parseInt(b);
+// Integer.parseInt()를 이용하여 c,d에 String자료형으로 입력받은 a,b를 초기화
+		Calc calc = new Add();
+//calc가 Calc를 참조하는 것으로 끝내려 했으나 임의의 인스턴스 생성
+		switch(op) {		//op를 기준으로 다른 인스턴스를 생성
+		case "+":
+			calc = new Add();
+			break;
+		case "-":
+			calc = new Sub();
+			break;
+		case "/":
+			calc = new Div();
+			break;
+		case "*":
+			calc = new Mul();
+		}			//이 시점에서 op에 맞는 인스턴스가 생성
+		calc.setValue(c, d);	//두 정수를 setValue를 통해 초기화한다
+		System.out.print(calc.calculate());
+	}		//각 인스턴스에 맞는 calculate()가 호출되어 출력된다
+	
+}
+```
+ 우선 문제대로 추상 클래스 Calc를 정의하고 필드, 메소드, 추상메소드를 선언했다. 
+ <br>그리고 각각의 Add, Sub, Div, Mul 클래스는 Calc클래스를 상속 받고, 추상메소드 calculate()를 오버라이딩 하여 해당하는 연산자의 연산을 반환하도록 작성하였다. 
+ <br>메인함수에서 문자열을 입력받아 Calc클래스에서 사용할 수 있는 형태로 바꾸어주었다. 
+ <br> calc가 Calc를 참조하도록 선언하려했는데, 인스턴스가 생성되지 않을 수 있다는 오류가 나서 임의로 Add()로 생성하였다.
+<br>switch문 내에서 op에 해당하는 인스턴스로 생성되도록 설정해 주고 setValue를 통해 연산에 사용할 숫자를 전달해 준 다음 calculate()를 통해 인스턴스에 해당하는 클래스의 메소드를 호출하도록 해 주었다.
