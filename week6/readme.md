@@ -370,3 +370,134 @@ public class CalcEx {
  <br>메인함수에서 문자열을 입력받아 Calc클래스에서 사용할 수 있는 형태로 바꾸어주었다. 
  <br> calc가 Calc를 참조하도록 선언하려했는데, 인스턴스가 생성되지 않을 수 있다는 오류가 나서 임의로 Add()로 생성하였다.
 <br>switch문 내에서 op에 해당하는 인스턴스로 생성되도록 설정해 주고 setValue를 통해 연산에 사용할 숫자를 전달해 준 다음 calculate()를 통해 인스턴스에 해당하는 클래스의 메소드를 호출하도록 해 주었다.
+
+<br>다른풀이
+```java
+
+응용 풀이
+import java.util.Scanner;
+abstract class Calc{
+	protected int a, b;
+	public void setValue(int a, int b){
+		this.a=a; this.b=b;
+	}
+	public abstract int calculate();
+}
+class Add extends Calc{
+	public int calculate() {
+		return a+b;
+	}
+}
+class Sub extends Calc{
+	public int calculate() {
+		return a-b;
+	}
+}
+class Mul extends Calc{
+	public int calculate() {
+		return a*b;
+	}
+}
+class Div extends Calc{
+	public int calculate() {
+		return a/b;
+	}
+}
+public class Calctest {
+	public static void main(String[] args) {
+		int a=0;
+		int b=0;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("두 정수와 연산자를 입력하세요 >>");
+		String line=sc.nextLine();
+		
+		String[] tokens=line.split(" ");
+		Calc obj = new Add();
+		loop:
+		for(int i=0;i<tokens.length;i++) {
+			if(tokens[i].equals("+")) {
+				obj = new Add();
+				sw1:
+				switch(i) {
+				case 0:
+					a=Integer.parseInt(tokens[1]);
+					b=Integer.parseInt(tokens[2]);
+					break sw1;
+				case 1:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[2]);
+					break sw1;
+				case 2:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[1]);
+					break sw1;
+				}
+				break loop;
+			}
+			else if(tokens[i].equals("-")) {
+				obj = new Sub();
+				sw2:
+				switch(i) {
+				case 0:
+					a=Integer.parseInt(tokens[1]);
+					b=Integer.parseInt(tokens[2]);
+					break sw2;
+				case 1:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[2]);
+					break sw2;
+				case 2:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[1]);
+					break sw2;
+				}
+				break loop;
+			}
+			else if(tokens[i].equals("*")) {
+				obj = new Mul();
+				sw3:
+				switch(i) {
+				case 0:
+					a=Integer.parseInt(tokens[1]);
+					b=Integer.parseInt(tokens[2]);
+					break sw3;
+				case 1:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[2]);
+					break sw3;
+				case 2:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[1]);
+					break sw3;
+				}
+				break loop;
+			}
+			else if(tokens[i].equals("/")) {
+				obj = new Div();
+				sw4:
+				switch(i) {
+				case 0:
+					a=Integer.parseInt(tokens[1]);
+					b=Integer.parseInt(tokens[2]);
+					break sw4;
+				case 1:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[2]);
+					break sw4;
+				case 2:
+					a=Integer.parseInt(tokens[0]);
+					b=Integer.parseInt(tokens[1]);
+					break sw4;
+				}
+				break loop;
+				
+			}
+			else ;
+		}
+		obj.setValue(a, b);
+		System.out.println(obj.calculate());
+	}
+}
+```
+
+이 경우는 위의 풀이와 비슷하나 연산자와 숫자의 순서를 제한없이 입력받을 수 있도록 작성되었다. 반복문과 조건문을 활용해서 해당하는 연산자와 숫자에 맞도록 인스턴스를 생성하도록 하고 a,b에 값을 대입한다. 그리고 setValue()와 calculate()를 호출하여 해당하는 클래스의 메소드를 호출한다.
