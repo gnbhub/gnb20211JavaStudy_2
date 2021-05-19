@@ -35,7 +35,7 @@ class Div extends Calc{
 public class abs {
 	public static void main(String[] args) {
 		String line;
-		System.out.print("µÎ Á¤¼ö¿Í ¿¬»êÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä>>");
+		System.out.print("ë‘ ì •ìˆ˜ì™€ ì—°ì‚°ìë¥¼ ì…ë ¥í•˜ì„¸ìš”>>");
 		Scanner input = new Scanner(System.in);
 		line = input.nextLine();
 		String[] data = line.split(" ");
