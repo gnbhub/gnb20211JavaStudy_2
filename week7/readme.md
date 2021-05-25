@@ -19,22 +19,25 @@ public class DivideByZero {
 		System.out.print("피젯수 :");  x = sc.nextInt();
 		System.out.print("젯수: ");   y = sc.nextInt();
 		
-		int result = x/y;
+		int result = x/y;	// 예외가 발생할 수 있는 문장
 		System.out.println("나눗셈 결과 : " + result);
 	}
 }
 ```
+실행결과
 ```java
-=> 피젯수 :75
+=> 피젯수 :10
 젯수: 0
 Exception in thread "main" java.lang.ArithmeticException: / by zero
 	at 예외처리.DivideByZero.main(DivideByZero.java:14
 ```
+-> 정수 10을 0으로 나누었기 때문에 **ArithmethicException** 이라는 이름의 예외가 발생하였다. 현재 예외를 처리하고 있지 않기 때문에 예외가 발생하는 즉시 프로그램이 종료된다.
 ## 자바 예외 처리
 - 프로그램 실행 시 발생하는 예외를 **Exception** 클래스로 제공
 - java.lang 패키지에 정의 
 - 예외가 발생하면 객체로 인식하여 예외 처리 함
-- 자바 Exception 클래스 계층 구조 
+
+### 자바 Exception 클래스 계층 구조 
 
 ### Exception 클래스 생성자
 `Exception()`:                                예외 메시지 없이 예외 클래스 예외를 생성<br>
@@ -42,8 +45,8 @@ Exception in thread "main" java.lang.ArithmeticException: / by zero
 `Exception(String message, Throwable cause)`: 예외 생성 시 예외 메시지와 원인을 예외에 전달
 
 ### Exception 클래스 메소드
-`public String getMessage( )`:     예외 발생 시 전달된 메시지를 반환
-`public Throwable getCause( )`:   예외 발생 시 전달된 예외 원인을 반환
+`public String getMessage( )`:     예외 발생 시 전달된 메시지를 반환<br>
+`public Throwable getCause( )`:   예외 발생 시 전달된 예외 원인을 반환<br>
 `public void printStackTrace( )`:  예외 발생 시 예외 발생 이력(backtrace)을 출력
 
 ### try~catch 구문
