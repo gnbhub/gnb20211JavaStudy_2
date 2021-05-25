@@ -16,8 +16,10 @@ public class DivideByZero {
 		int x,y;
 		Scanner sc = new Scanner (System.in);
 		
-		System.out.print("피젯수 :");  x = sc.nextInt();
-		System.out.print("젯수: ");   y = sc.nextInt();
+		System.out.print("피젯수 :");  
+		x = sc.nextInt();
+		System.out.print("젯수: ");   
+		y = sc.nextInt();
 		
 		int result = x/y;	// 예외가 발생할 수 있는 문장
 		System.out.println("나눗셈 결과 : " + result);
@@ -60,7 +62,7 @@ try {
 ```
 
 <try catch 구문 예시>
-```
+```java
 import java.util.Scanner;
 public class DivideByZero {
 	public static void main(String[] args) {
@@ -71,12 +73,13 @@ public class DivideByZero {
 		System.out.print("젯수: ");   y = sc.nextInt();
 		
 		try {
-			int result = x/y;
+			int result = x/y;	//예외가 발생할 수 있는 문장
 			System.out.println(x+"/"+y+"="+result);
-		}catch(Exception e)
-		{  System.out.println("0으로 나눌 수 없음");}
+		}catch(Exception e){		//여기서 오류를 처리함.
+			System.out.println("0으로 나눌 수 없음");
+		}
+		System.out.println("프로그램은 계속 진행됩니다.");	//오류처리 이후의 문장은 계속 실행됨
 		
-		System.out.println(x+"*3=" +(x*3));
 	}
 }
 ```
@@ -84,7 +87,7 @@ public class DivideByZero {
 =>피젯수 :75
 젯수: 0
 0으로 나눌 수 없음
-75*3=225
+프로그램은 계속 진행됩니다.
 ```
 
 ### 다중 catch문
@@ -167,7 +170,7 @@ public class ThrowTest {
 		Calculator c = new Calculator();
 		try {  c.DivideFun();  //함수 호출
 		}catch(ArithmeticException e) {
-			System.out.println("main 메소드에서 산술 에외 처리");
+			System.out.println("main 메소드에서 산술 예외 처리");
 			System.out.println("0으로 나눌 수 없다.");
 		}
 		System.out.println("예외처리 세계");
@@ -187,6 +190,22 @@ main 메소드에서 산술 에외 처리
 이미지 (또는 그래픽)을 이용하여 사용자가 편리하도록 만들어진 인터페이스
 - 메뉴 등을 포함하는 화면 구성
 - 키보드, 마우스 등의 편리한 입출력 도구 이용 가능
+
+### AWT(Abstract Windowing Toolkit)
+ - 초기에 배포된 GUI 라이브러리(java.awt 패키지)
+ - AWT 컴포넌트는 중량 컴포넌트(Heavy weight components)
+ 	- AWT 컴포넌트는 운영체제의 GUI 컴포넌트의 도움을 받아 작동
+	- 운영체제에 많은 부담
+ 	- 처리 속도는 빠름
+
+### Swing(스윙)
+ - AWT 기술을 기반으로 **순수 자바 언어**로 만들어진 라이브러리(javax.swing 패키지)
+ 	- AWT 기능과 추가된 고급 컴포넌트
+ 	- AWT 컴포넌트에 J자가 덧붙여진 이름의 클래스
+ 	- 그 외 J자로 시작하는 클래스
+ - Swing 컴포넌트는 경량 컴포넌트(Light weight components)
+ 	- 운영체제에 의존하지 않음
+### AWT와 Swing의 비교
 
 ### 컴포넌트
 - 순수컴포넌트: 컨테이너에 포함되어야 화면에 표시되는 GUI객체, 컴포넌트를 포함할 수 없는 컴포넌트(JButtion, JLabel..)
