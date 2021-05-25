@@ -292,7 +292,7 @@ public class MyFrame extends JFrame{
 	}
 }
 ```
-
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/GUI.JPG?raw=true)
 ### 배치관리자 개념
  - 컨테이너마다 하나의 배치관리자 존재
  - 컨테이너에 부착되는 **컴포넌트의 위치와 크기를 자동으로 결정**
