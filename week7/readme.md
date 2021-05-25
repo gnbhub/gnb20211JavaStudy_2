@@ -204,7 +204,8 @@ main 메소드에서 산술 에외 처리
  	- AWT 컴포넌트에 J자가 덧붙여진 이름의 클래스
  	- 그 외 J자로 시작하는 클래스
  - Swing 컴포넌트는 경량 컴포넌트(Light weight components)
- 	- 운영체제에 의존하지 않음
+ 	- 운영체제에 의존하지 않음<br>
+※스윙컴포넌트에 속하는 클래스의 이름앞에 J가 붙는 이유 : AWT클래스와 클래스 이름 충돌을 방지하기 위함.
 ### AWT와 Swing의 비교
 ![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/AWTSwing.JPG?raw=true)
 ### 컴포넌트
@@ -294,23 +295,41 @@ public class MyFrame extends JFrame{
 
 ### 배치관리자 개념
  - 컨테이너마다 하나의 배치관리자 존재
- - 컨테이너에 부착되는 컴포넌트의 위치와 크기를 자동으로 결정
+ - 컨테이너에 부착되는 **컴포넌트의 위치와 크기를 자동으로 결정**
  - java.awt 패키지에 구현되어 있음
 
 ### 배치관리자 유형 4가지
 #### FlowLayout 
-- 컴포넌트 삽입되는 순서대로 왼쪽에서 오른쪽으로 배치
+- 컴포넌트 삽입되는 순서대로 **왼쪽에서 오른쪽으로** 배치
 - 배치할 공간이 없으면 아래로 내려와서 반복
 - Panel. JPanel. Applet, JApplet의 기본배치관리자
-#### BorderLayour 
-- 컨테이너 공간을 동,서,남,북,중앙 5개 영역으로 나눔
+#### BorderLayout
+- 컨테이너 공간을 **동(EAST), 서(WEST), 남(SOUTH), 북(NORTH), 중앙(CENTER) 5개 영역으로** 나눔
+- 5개 영역 중 응용프로그램에서 **지정한 영역**에 컴포넌트 배치
+	- add(Component c, int index) 메소드 사용
+	- ㄴ컴포넌트 c를 index(아래 그림 참조)의 위치에 배치
 - 영역을 지정하지 않으면 가운데 배치됨
-- Window, JWindeow, Frame, JFrame, Dialog, JDialog의 기본배치관리자<br>
+- Window, JWindeow, Frame, JFrame, Dialog, JDialog의 기본배치관리자
+- 생성자
+	- BoredrLayout()
+	- BorderLayout(int hGap, intvGap) 
+		- hGap : 좌우 컴포넌트 간의 수평 간격
+		- vGap : 상하 컴포넌트 간의 수직 간격
+		- 단위는 픽셀, 기본값은 0으로 지정되어 있음
 #### GridLayout
-- 컨테이너를 프로그램에서 설정한 동일한 크기의 2차원 격자로 나눔
-- 컴포넌트는 삽입 순서대로 좌에서 우로, 다시 위에서 아래로 배치<br>
+- 컨테이너를 프로그램에서 설정한 동일한 크기의 **2차원 격자**로 나누고 각 셀에 컴포넌트 하나씩 배치
+	- 컴포넌트는 삽입 순서대로 **좌에서 우로, 다시 위에서 아래로** 배치
+- GridLayout 클래스 생성자
+	- GridLayout()
+	- GridLayout(int rows, int cols)
+	- GridLayout(int rows, int cols, int hGap, int vGap)
+		- rows : 격자의 행수 (디폴트 : 1)
+		- cols : 격자의 열수 (디폴트 : 1)
+		- rows x cols 만큼의 셀을 가진 격자로 컨테이너 공간을 분할, 배치
+		- hGap : 좌우 두 컴포넌트 사이의 수평 간격(단위:픽셀, 디폴트 : 0)
+		- vGap : 상하 두 컴포넌트 사이의 수직 간격 (단위:셀, 디폴트 : 0)
 #### CardLayout
-- 컨테이너 공간에 카드를 쌓아 놓은 듯이 컴포넌트들 포개어 배치
+- 컨테이너 공간에 **카드를 쌓아 놓은 듯이** 컴포넌트들 포개어 배치
  
 
 <FlowLayout 배치관리자 사용 예시>
@@ -323,7 +342,7 @@ public class FlowLayoutEx extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("FlowLayouTest");
 		setSize(300,150);
-		setLayout(new FlowLayout(FlowLayout.LEFT));
+		setLayout(new FlowLayout(FlowLayout.LEFT));	//왼쪽부터 정렬, 컨테이너의 크기가 변경되면 컴포넌트들이 재배치됨
 		
 		add(new JButton("버튼1"));
 		add(new JButton("버튼2"));
@@ -334,17 +353,6 @@ public class FlowLayoutEx extends JFrame{
 		FlowLayoutEx f = new FlowLayoutEx(); 
 		}
 }
-```
-<배치관리자의 생성자 활용>
-```java
-BoredrLayout()
-BorderLayout(int hGap, intvGap) 
--hGap : 좌우 컴포넌트 수평 간격, -vGap : 상하 컴포넌트 수직 간격
-FlowLayout()
-FlowLayout.방향
-GirdLayout()
-GirdLayout(int rows, int cols)  
-GirdLayout(int rows, int cols, int hGap, int vGap)
 ```
 
 <GridLayout 배치관리자 사용 예시>
