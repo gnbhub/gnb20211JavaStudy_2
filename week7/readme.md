@@ -206,32 +206,59 @@ main 메소드에서 산술 에외 처리
  - Swing 컴포넌트는 경량 컴포넌트(Light weight components)
  	- 운영체제에 의존하지 않음
 ### AWT와 Swing의 비교
-
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/AWTSwing.JPG?raw=true)
 ### 컴포넌트
-- 순수컴포넌트: 컨테이너에 포함되어야 화면에 표시되는 GUI객체, 컴포넌트를 포함할 수 없는 컴포넌트(JButtion, JLabel..)
-- 컨테이너 : 다른 컴포넌트를 포함할 수 있는 컴포넌트(JRame, JDialog..)
+- **순수컴포넌트**: 컨테이너에 포함되어야 화면에 표시되는 GUI객체, 컴포넌트를 포함할 수 없는 컴포넌트(JButtion, JLabel..)
+- **컨테이너** : 다른 컴포넌트를 포함할 수 있는 컴포넌트(JRame, JDialog..)
+- 모든 GUI 컴포넌트가 java.awt.Component 상속받음
+- 스윙 컴포넌트 javax.swing.Jcomponent를 상속
+#### 컨테이너의 종류
+ - 최상위 컨테이너
+ 	- 다른 컨테이너에 포함될 수 없는 컨테이너
+ 	- 프레임(JFrame), 다이얼로그(JDialog), 애플릿(JApplet)
+ - 일반 컨테이너
+ 	- 다른 컨에니어 안에 포함될 수 있는 컨테이너
+ 	- 패널(JPanel), 스크롤팬(JScrollPane) 등
+### GUI 응용프로그램 작성을 위한 import
+```java
+• import java.awt.*;		// 그래픽 처리를 위한 클래스들의 경로명
+• import java.awt.event.*;	// AWT 이벤트 사용을 위한 경로명
+• import javax.swing.*;		// 스윙 컴포넌트 클래스들의 경로명
+• import javax.swing.event.*;	// 스윙 이벤트를 위한 경로명
+```
+### 스윙 프레임
+ - 최상위 GUI 컨테이너 : 모든 스윙 컴포넌트를 담는 컨테이너
+ 	- JFrame을 상속받아 구현
+ 	- 컴포넌트가 화면에 보이려면 스윙 프레임에 부착되어야 함
+ 	- 내부에 컨텐트팬(content pane; JFrame 객체 생성시 자동 생성)을 가지고 있음
+ 	- 컨텐트팬에 화면에 보이는 컴포넌트를 배치
+ 	- 최상위 컨테이너에는 메뉴바 추가 가능
+ - 스윙 프레임(JFrame) 기본 구성
+ 	- 프레임 : 스윙 프로그램의 기본 틀
+ 	- 메뉴바 : 메뉴들이 부착되는 공간
+ 	- 컨텐트팬 : GUI 컴포넌트들이 부착되는 공간
 
-#### 주요 메소드
+### 주요 메소드
 `add(componet)`: 프레임(컨테이너)에 컴포넌트를 추가하는 메소드<br>
 `setLocation(x,y)`: 프레임의 위치 설정하는 메소드<br>
 `setSize(width, height)`: 프레임의 크기 설정하는 메소드<br>
 `setIconImage(IconImage)`: 타이틀 바에 표시할 아이콘을 설정하는 메소드<br>
 `setTitle(“제목”)`: 타이틀 바의 제목을 설정하는 메소드<br>
 `seBackground(Color,yellow)`: 컨텐트팬의 배경색을 지정하는 메소드<br>
-`setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);` : 프레임 종료버튼이 클릴될 떄 프레임을 듣고 응용프로그램도 종료시킬 경우
+**`setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);`** : 프레임 종료버튼이 클릭될 때, 프레임을 닫고 응용프로그램도 종료시킬 경우
 
 <컨테이너 생성하고 컴포넌트 추가하기>
 ```java
-import javax.swing.*;
+import javax.swing.*;		// swing컴포넌트를 사용하기 위한 import문
 
-public class MyFrame extends JFrame{
+public class MyFrame extends JFrame{		//JFrame을 상속 받아서 프레임 생성
 	public MyFrame() {
-		setSize(300,200);
-		setTitle("프레임생성, 컴포넌트 추가");
+		setSize(300,200);		//프레임의 크기 지정
+		setTitle("프레임생성, 컴포넌트 추가");	//Title bar 제목 지정
 		
-		JButton b = new JButton("버튼");
-		add(b);
-		setVisible(true);
+		JButton b = new JButton("버튼");	//버튼 생성
+		add(b);				//버튼을 프레임의 컨텐트팬에 추가
+		setVisible(true);		//프레임이 표시되도록 속성 지정 - 기본 속성이 false로 지정되어 있음
 	}
 	
 	public static void main(String[] args) {
@@ -241,27 +268,30 @@ public class MyFrame extends JFrame{
 ```
 
 <GUI 프로그램 작성 예>
-```
+```java
 import javax.swing.*;
 import java.awt.*;
 
 public class MyFrame extends JFrame{
 	public MyFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(300,150); setLocation(200,300);
-		setTitle("MyFrame"); setLayout(new FlowLayout());
-		getContentPane().setBackground(Color.yellow);
-		JButton button1 = new JButton("확인"); //버튼생성
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//x를 클릭하면 프레임이 닫히고 프로그램도 종료됨.
+		setSize(300,150); 		// 프레임 크기(단위 : 픽셀)
+		setLocation(200,300);		//프레임이 표시될 위치
+		setTitle("MyFrame"); 
+		setLayout(new FlowLayout());	//배치 관리자
+		getContentPane().setBackground(Color.yellow);	//컨텐트팬의 배경색 설정
+		JButton button1 = new JButton("확인"); 	//버튼생성
 		JButton button2 = new JButton("취소");
-		this.add(button1); this.add(button2);
+		this.add(button1); 		//버튼을 컨텐트팬에 추가
+		this.add(button2);
 		setVisible(true);
 	}
 	public static void main(String[] args) {
-		MyFrame f = new MyFrame(); //프레임객체생성
+		MyFrame f = new MyFrame(); 	//프레임 객체 생성
 	}
 }
 ```
-=>x 클릭하면 프레임이 닫히고 프로그램도 종료됨.
+
 ### 배치관리자 개념
  - 컨테이너마다 하나의 배치관리자 존재
  - 컨테이너에 부착되는 컴포넌트의 위치와 크기를 자동으로 결정
