@@ -267,8 +267,8 @@ public class MyFrame extends JFrame{		//JFrame을 상속 받아서 프레임 생
 	}
 }
 ```
-
-<GUI 프로그램 작성 예>
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/Component.JPG?raw=true)
+<br><GUI 프로그램 작성 예>
 ```java
 import javax.swing.*;
 import java.awt.*;
