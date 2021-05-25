@@ -340,7 +340,7 @@ import java.awt.*;
 public class FlowLayoutEx extends JFrame{
 	public FlowLayoutEx() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("FlowLayouTest");
+		setTitle("FlowLayoutTest");
 		setSize(300,150);
 		setLayout(new FlowLayout(FlowLayout.LEFT));	//왼쪽부터 정렬, 컨테이너의 크기가 변경되면 컴포넌트들이 재배치됨
 		
