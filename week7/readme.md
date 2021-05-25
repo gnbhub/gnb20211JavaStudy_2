@@ -207,7 +207,7 @@ main 메소드에서 산술 에외 처리
  	- 운영체제에 의존하지 않음<br>
 ※스윙컴포넌트에 속하는 클래스의 이름앞에 J가 붙는 이유 : AWT클래스와 클래스 이름 충돌을 방지하기 위함.
 ### AWT와 Swing의 비교
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/AWTSwing.JPG?raw=true)
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/AWTSwing.JPG?raw=true)
 ### 컴포넌트
 - **순수컴포넌트**: 컨테이너에 포함되어야 화면에 표시되는 GUI객체, 컴포넌트를 포함할 수 없는 컴포넌트(JButtion, JLabel..)
 - **컨테이너** : 다른 컴포넌트를 포함할 수 있는 컴포넌트(JRame, JDialog..)
@@ -267,7 +267,7 @@ public class MyFrame extends JFrame{		//JFrame을 상속 받아서 프레임 생
 	}
 }
 ```
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/Component.JPG?raw=true)
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/Component.JPG?raw=true)
 <br><GUI 프로그램 작성 예>
 ```java
 import javax.swing.*;
@@ -292,7 +292,7 @@ public class MyFrame extends JFrame{
 	}
 }
 ```
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/GUI.JPG?raw=true)
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/GUI.JPG?raw=true)
 ### 배치관리자 개념
  - 컨테이너마다 하나의 배치관리자 존재
  - 컨테이너에 부착되는 **컴포넌트의 위치와 크기를 자동으로 결정**
@@ -354,7 +354,8 @@ public class FlowLayoutEx extends JFrame{
 		}
 }
 ```
-
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/Flow.JPG?raw=true)
+<br>
 <GridLayout 배치관리자 사용 예시>
 ```java
 import javax.swing.*;
@@ -381,6 +382,7 @@ public class GridLayoutEx extends JFrame{
 		}
 }
 ```
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/Grid.JPG?raw=true)
 ### 패널(panel)
  - 컴포넌트들을 포함하고 있도록 설계된 컨테이너
  - 창을 여러개로 나누어서 표시하고 싶을 떄 사용
@@ -416,4 +418,6 @@ public class TempConverter extends JFrame{
 		}
 }
 ```
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/Temp.JPG?raw=true)
+<br>
 #written by ktw
