@@ -15,8 +15,8 @@ public class Hangman {
 		}
 		int count = 0;
 		do {
-			System.out.println("ÇöÀçÀÇ »óÅÂ:"+answer);
-			System.out.print("±ÛÀÚ¸¦ ÃßÃøÇÏ½Ã¿À:");
+			System.out.println("í˜„ì¬ì˜ ìƒíƒœ:"+answer);
+			System.out.print("ê¸€ìë¥¼ ì¶”ì¸¡í•˜ì‹œì˜¤:");
 			char c = (sc.next()).charAt(0);
 			for(int i = 0;i<solution.length();i++) {
 				if(solution.charAt(i)==c) {
@@ -25,7 +25,7 @@ public class Hangman {
 					count++;}
 			}
 			}while(count!=answer.length());
-			System.out.println("ÇöÀçÀÇ »óÅÂ:"+answer);
+			System.out.println("í˜„ì¬ì˜ ìƒíƒœ:"+answer);
 
 	}
 
