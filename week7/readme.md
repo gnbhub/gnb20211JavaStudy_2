@@ -40,7 +40,7 @@ Exception in thread "main" java.lang.ArithmeticException: / by zero
 - 예외가 발생하면 객체로 인식하여 예외 처리 함
 
 ### 자바 Exception 클래스 계층 구조 
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/Exception.JPG?raw=true)
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/Exception.JPG?raw=true)
 ### Exception 클래스 생성자
 `Exception()`:                                예외 메시지 없이 예외 클래스 예외를 생성<br>
 `Exception(String message )`:                 예외 생성 시 예외 메시지를 예외에 전달<br>
