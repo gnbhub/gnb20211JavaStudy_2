@@ -309,7 +309,7 @@ public class MyFrame extends JFrame{
 	- add(Component c, int index) 메소드 사용
 	- ㄴ컴포넌트 c를 index(아래 그림 참조)의 위치에 배치
 - 영역을 지정하지 않으면 가운데 배치됨
-- Window, JWindeow, Frame, JFrame, Dialog, JDialog의 기본배치관리자
+- Window, JWindow, Frame, JFrame, Dialog, JDialog의 기본배치관리자
 - 생성자
 	- BorderLayout()
 	- BorderLayout(int hGap, intvGap) 
@@ -327,7 +327,7 @@ public class MyFrame extends JFrame{
 		- cols : 격자의 열수 (디폴트 : 1)
 		- rows x cols 만큼의 셀을 가진 격자로 컨테이너 공간을 분할, 배치
 		- hGap : 좌우 두 컴포넌트 사이의 수평 간격(단위:픽셀, 디폴트 : 0)
-		- vGap : 상하 두 컴포넌트 사이의 수직 간격 (단위:셀, 디폴트 : 0)
+		- vGap : 상하 두 컴포넌트 사이의 수직 간격 (단위:픽셀, 디폴트 : 0)
 #### CardLayout
 - 컨테이너 공간에 **카드를 쌓아 놓은 듯이** 컴포넌트들 포개어 배치
  
