@@ -421,3 +421,23 @@ public class TempConverter extends JFrame{
 ![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/Temp.JPG?raw=true)
 <br>
 #written by ktw
+
+## 연습문제 1
+#### 교재 p250 mini game
+빈칸으로 구성된 문자열이 주어지고 사용자는 문자열에 들어갈 글자들을 하나씩 추측해서 맞추는 게임
+<br>사용자가 문자열에 들어 있는 글자를 말했으면 화면에 그 글자를 출력한다. 문제에 사용되는 문자열들은 String 배열에 저장되어 있고 매번 랜덤하게 선택된다고 가정한다.
+``` java
+현재의 상태 : _____
+글자를 추측하시오 : s
+현재의 상태 : _____
+글자를 추측하시오 : c
+현재의 상태 : c____
+글자를 추측하시오 : o
+현재의 상태 : co___
+글자를 추측하시오 : n
+현재의 상태 : co_n_
+글자를 추측하시오 : t
+현재의 상태 : co_nt
+글자를 추측하시오 : u
+현재의 상태 : count
+```
