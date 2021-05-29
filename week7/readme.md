@@ -474,3 +474,6 @@ public class Hangman {
 	}
 
 }
+String형 배열 words를 선언하여 문제에 사용될 문자열들을 저장한다. Random메소드를 통해 words에서 어떤것을 문제로 사용할지 정하는 index를 만든다.
+StringBuffer클래스로 사용자가 대답함에 따라 내용이 바뀌는 answer를 선언한다. 그리고 반복 루프 내에서 글자를 입력받고 입력받은 글자가 solution안에 있는지 확인하고 존재한다면
+answer에서 해당 인덱스에 입력받은 글자를 입력하고 그에 따라 밀려난 '_'를 삭제한다. 
