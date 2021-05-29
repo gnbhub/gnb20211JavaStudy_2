@@ -481,4 +481,34 @@ answer에서 해당 인덱스에 입력받은 글자를 입력하고 그에 따�
 
 #### 교재 p284 P.E 5
 프레임 안에 20개의 버튼을 다음과 같이 배치하는 프로그램을 작성하라. GridLayout을 사용한다. 버튼의 배경색은 랜덤한 색상으로 한다.
-![]![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/PE.JPG?raw=true)
+![]![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/pe.JPG?raw=true)
+```java
+import javax.swing.*;
+import java.awt.*;
+
+public class ph extends JFrame{
+	public ph() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//x버튼을 누르면 종료
+		Container contentPane = getContentPane();
+		
+		contentPane.setLayout(new GridLayout(4,5));		//4행 5열의 GridLayout 배치관리자
+		
+		for(int i=0; i<20; i++) {
+			String text = Integer.toString(i);
+			JButton button = new JButton(text);		//버튼에 숫자 부여
+			contentPane.add(button);			//패널에 버튼을 넣는다
+			int R = (int)(Math.random()*256);		
+			int G = (int)(Math.random()*256);
+			int B = (int)(Math.random()*256);
+			Color color = new Color(R,G,B);
+			button.setBackground(color);		//배경 색상 부여
+		}
+		setSize(500,200);		//컨텐트팬 사이즈 지정
+		setVisible(true);		//보이도록 설정, 이것을 꼭 해주어야 함
+	}
+	public static void main(String[] args) {
+		new ph(); 
+		}
+}
+```
+R,G,B 값을 각각 난수로 설정하고 Color클래스를 활용하여 R,G,B값을 토대로 color인스턴스를 만들어 주어 setBackground()를 활용해서 배경색을 지정해주었다.
