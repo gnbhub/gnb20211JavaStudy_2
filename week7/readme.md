@@ -131,7 +131,7 @@ public class ExceptionTest3 {
 		}finally {
 			System.out.println("오류 발생 유무와 무관하게 수행");
 		}
-		System.out.println("에외 World");
+		System.out.println("예외 World");
 	}
 }
 ```
@@ -140,14 +140,14 @@ public class ExceptionTest3 {
 젯수: 3
 75/3=25
 오류 발생 유무와 무관하게 수행
-에외 World
+예외 World
 ```
 ```java
 피젯수 :75
 젯수: 0
 0으로 나눌 수 없음
 오류 발생 유무와 무관하게 수행
-에외 World
+예외 World
 ```
 
 ### throws를 이용한 예외처리
