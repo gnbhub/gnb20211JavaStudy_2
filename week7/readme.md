@@ -311,7 +311,7 @@ public class MyFrame extends JFrame{
 - 영역을 지정하지 않으면 가운데 배치됨
 - Window, JWindeow, Frame, JFrame, Dialog, JDialog의 기본배치관리자
 - 생성자
-	- BoredrLayout()
+	- BorderLayout()
 	- BorderLayout(int hGap, intvGap) 
 		- hGap : 좌우 컴포넌트 간의 수평 간격
 		- vGap : 상하 컴포넌트 간의 수직 간격
