@@ -422,7 +422,7 @@ public class TempConverter extends JFrame{
 <br>
 #written by ktw
 
-## 연습문제 1
+## 연습문제 
 #### 교재 p250 mini game
 빈칸으로 구성된 문자열이 주어지고 사용자는 문자열에 들어갈 글자들을 하나씩 추측해서 맞추는 게임
 <br>사용자가 문자열에 들어 있는 글자를 말했으면 화면에 그 글자를 출력한다. 문제에 사용되는 문자열들은 String 배열에 저장되어 있고 매번 랜덤하게 선택된다고 가정한다.
@@ -474,6 +474,11 @@ public class Hangman {
 	}
 
 }
+```
 String형 배열 words를 선언하여 문제에 사용될 문자열들을 저장한다. Random메소드를 통해 words에서 어떤것을 문제로 사용할지 정하는 index를 만든다.
 StringBuffer클래스로 사용자가 대답함에 따라 내용이 바뀌는 answer를 선언한다. 그리고 반복 루프 내에서 글자를 입력받고 입력받은 글자가 solution안에 있는지 확인하고 존재한다면
-answer에서 해당 인덱스에 입력받은 글자를 입력하고 그에 따라 밀려난 '_'를 삭제한다. 
+answer에서 해당 인덱스에 입력받은 글자를 입력하고 그에 따라 밀려난 "\_"를 삭제한다.
+
+#### 교재 p284 P.E 5
+프레임 안에 20개의 버튼을 다음과 같이 배치하는 프로그램을 작성하라. GridLayout을 사용한다. 버튼의 배경색은 랜덤한 색상으로 한다.
+![]![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/PE.JPG?raw=true)
