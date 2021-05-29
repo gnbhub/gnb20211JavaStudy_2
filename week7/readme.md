@@ -312,7 +312,7 @@ public class MyFrame extends JFrame{
 - Window, JWindow, Frame, JFrame, Dialog, JDialog의 기본배치관리자
 - 생성자
 	- BorderLayout()
-	- BorderLayout(int hGap, intvGap) 
+	- BorderLayout(int hGap, int vGap) 
 		- hGap : 좌우 컴포넌트 간의 수평 간격
 		- vGap : 상하 컴포넌트 간의 수직 간격
 		- 단위는 픽셀, 기본값은 0으로 지정되어 있음
