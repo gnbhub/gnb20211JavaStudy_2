@@ -481,7 +481,7 @@ answer에서 해당 인덱스에 입력받은 글자를 입력하고 그에 따�
 
 #### 교재 p284 P.E 5
 프레임 안에 20개의 버튼을 다음과 같이 배치하는 프로그램을 작성하라. GridLayout을 사용한다. 버튼의 배경색은 랜덤한 색상으로 한다.
-![]![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/pe.JPG?raw=true)
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week7/pic/pe.JPG?raw=true)
 ```java
 import javax.swing.*;
 import java.awt.*;
