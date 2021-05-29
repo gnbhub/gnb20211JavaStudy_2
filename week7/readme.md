@@ -441,3 +441,36 @@ public class TempConverter extends JFrame{
 글자를 추측하시오 : u
 현재의 상태 : count
 ```
+```java
+import java.util.Scanner;
+import java.util.Random;
+
+public class Hangman {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] words = { "java", "count", "school", "book", "student", "programmer"};		//String 배열에 문제에 사용될 문자열들을 저장
+		int index = (new Random()).nextInt(words.length);			//String 배열 중 어떤것을 문제로 쓸지 지정하는 난수 인덱스
+		String solution = words[index];						
+		StringBuffer answer = new StringBuffer(solution.length());		//정답 길이만큼의 StringBuffer 변수 생성
+		for(int i =0; i<solution.length();i++) {			//answer의 값을 모두 '_'로 초기화한다
+			answer.insert(i,"_");
+		}
+		int count = 0;			//배열에서 _가 없어지면 더이상 작동하지 않게 count변수 선언
+		do {
+			System.out.println("현재의 상태:"+answer);
+			System.out.print("글자를 추측하시오:");
+			char c = (sc.next()).charAt(0);		
+//#Scanner 클래스 메소드 중 한 글자만을 입력받는 메소드가 없다. 따라서 String으로 입력을 받고 String클래스의 charAt()메소드를 활용하여 String의 첫 글자만을 c에 초기화한다.
+			for(int i = 0;i<solution.length();i++) {
+				if(solution.charAt(i)==c) {		//만약 solution에 c가 포함되어있는 경우
+					answer.insert(i, c);		//answer의 i번째 인덱스에 c를 집어넣는다
+					answer.deleteCharAt(i+1);	//뒤로 한칸 밀려난 '_'를 삭제한다
+					count++;}			//이 과정이 실행되면 count를 1 증가시킨다
+			}
+			}while(count!=answer.length());		//count가 글자 길이와 같아지면 반복루프 종료
+			System.out.println("현재의 상태:"+answer);
+
+	}
+
+}
