@@ -69,7 +69,7 @@ public class MyFrame extends JFrame{
 	- **Object 타입으로 리턴하므로 캐스팅하여 사용**
 	- 모든 이벤트 객체에 대해 적용
 ![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/method.JPG?raw=true)
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/source.JPG?raw=true
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/source.JPG?raw=true)
 
  ## 여러 가지 이벤트 처리 방법
  ### 1. 프레임 클래스가 이벤트를 처리
@@ -196,7 +196,7 @@ public class MyFrame extends JFrame{
 	}
 }
 ```
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/eli.JPG?raw=true
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/eli.JPG?raw=true)
 
  ## 키 이벤트(key event)
  키 이벤트는 사용자가 키보드를 이용하여 입력을 하는 경우에 발생한다. 어떤 클래스가 키보드 이벤트를 처리하려면 KeyListener 인터페이스를 구현해야 한다.
@@ -280,7 +280,7 @@ class MyListener extends KeyAdapter{  //인터페이스를 구현해 놓은 어�
  ## 스트림(stream)
  “바이트들의 연속적인 흐름”
 <br>우리는 스트림 객체에서 바이트를 읽을 수 있고 스트림 객체에 바이트를 쓸 수도 있다. 스트림은 입출력의 단위에 따라서 분류할 수 있다.
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/stream.JPG?raw=true
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/blob/master/week8/pic/stream.JPG?raw=true)
 
  ### 바이트 스트림
  - 바이트 스트림(byte stream)은 1byte 단위로 입출력하는 클래스
