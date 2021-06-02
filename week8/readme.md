@@ -460,7 +460,7 @@ puiblic class FileTest {
 
 ## 연습문제
 지난 7주차에 있었던 온도 변환기를 실제로 동작하도록 만들어보았다<br>
-![](https://github.com/gnbhub/gnb20211JavaStudy_2/raw/master/week7/pic/Flow.JPG?raw=true)
+![](https://github.com/gnbhub/gnb20211JavaStudy_2/raw/master/week7/pic/Temp.JPG?raw=true)
 ```java
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
