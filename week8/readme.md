@@ -458,7 +458,7 @@ puiblic class FileTest {
 }
 ```
 
-## 연습문제
+<!-- ## 연습문제
 지난 7주차에 있었던 온도 변환기를 실제로 동작하도록 만들어보았다<br>
 ![](https://github.com/gnbhub/gnb20211JavaStudy_2/raw/master/week7/pic/Temp.JPG?raw=true)
 ```java
@@ -520,3 +520,4 @@ public class TempConverter extends JFrame{
 getText()메소드를 통해 JTextField 안의 문자를 불러 오고, 이를 wrapper클래스의 메소드를 통해서 정수형으로 변환하여 계산에 이용한다. 
 <br>만약 화씨온도 입력이 없거나 0 이라면 섭씨온도를 화씨온도로 바꾸어 화씨온도의 JTextField에 계산한 값을 대입해주고,
 <br>섭씨온도 입력이 없거나 0 이라면 화씨온도를 섭씨온도로 바꾸어 섭씨온도의 JTextField에 계산한 값을 대입해준다.
+-->
