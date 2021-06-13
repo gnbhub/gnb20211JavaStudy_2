@@ -1,49 +1,44 @@
 package week8;
+import java.util.Scanner;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import java.util.Scanner;
-public class TempTrans extends JFrame implements ActionListener {
-	private JButton button;
-	private JTextField field1;
-	private JLabel label1, label2, label3;
-	private int C, F;
+
+public class TempTrans extends JFrame{
+	JButton bt;
+	JLabel C, F, FText;
+	JTextField CText;
+	int CTemp=0, FTemp=0;
 	class MyListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			String s=field1.getText();
-			C=Integer.parseInt(s);
-			F=(C*9/5)+32;
-			label3=new JLabel(""+F);
+			String s=CText.getText();
+			CTemp=Integer.parseInt(s);
+			FTemp=(CTemp*9/5)+32;
+			FText.setText(""+FTemp);
 		}
 	}
 	public TempTrans() {
-		this.setSize(300,200);
-		this.setTitle("온도 변환기");
 		setLayout(new FlowLayout());
-		JPanel panel=new JPanel();
-		add(panel);
-		label1=new JLabel("섭씨 온도");
-		field1=new JTextField(15);
-		//Scanner sc=new Scanner(System.in);
-		//C=sc.nextInt();
-		label2=new JLabel("화씨 온도");
-		label3=new JLabel();
-		button=new JButton("변환");
-		button.addActionListener(new MyListener());
+		C=new JLabel("섭씨 온도");
+		CText=new JTextField(20);
 		
-		panel.add(label1);
-		panel.add(field1);
-		panel.add(label2);
-		panel.add(label3);
-		panel.add(button);
+		F=new JLabel("화씨 온도");
+		FText=new JLabel(" ");
+		bt=new JButton("변환하기");
+		bt.addActionListener(new MyListener());
+		add(C);	add(CText);	add(F);	add(FText);
+		add(bt);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(300,200);
+		
+		setTitle("온도 변환기");
 		setVisible(true);
 	}
+	
+	
 	public static void main(String[] args) {
-		TempTrans f=new TempTrans();
-		
+		TempTrans t=new TempTrans();
 	}
-	
-	
-	
 }
-
